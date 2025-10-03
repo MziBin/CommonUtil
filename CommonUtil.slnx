@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/Demo/" />
+  <Folder Name="/Tests/">
+    <Project Path="Tests/MSTests/MSTests.csproj" Id="3e4ad0ec-b671-40c8-8c69-27f21965e732" />
+  </Folder>
+  <Project Path="CommonUtil/CommonUtil.csproj" Id="2caa8744-b01b-464d-b335-cecc9816fd69" />
+</Solution>

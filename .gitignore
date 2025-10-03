@@ -1,0 +1,20 @@
+# 忽略所有 .log 文件
+*.log
+!error.log  # 但保留 error.log
+
+# 忽略 bin/debug 目录及其子目录
+bin/debug/
+
+# 忽略名为 temp.txt 的文件
+temp.txt
+
+# 忽略 .vs 目录（Visual Studio 配置）
+.vs/
+
+# 忽略 IDEA 配置目录
+.idea/
+
+# 忽略 Visual Studio 中的
+.vs/
+obj/
+*.suo
