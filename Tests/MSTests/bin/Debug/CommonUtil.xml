@@ -1,0 +1,256 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CommonUtil</name>
+    </assembly>
+    <members>
+        <member name="M:CommonUtil.Ini.Implement.Ini.ReadValue(System.String,System.String,System.String)">
+            <summary>
+            读取指定section中的指定key的值。如果section或key不存在，则返回默认值defaultValue。
+            </summary>
+            <param name="section"></param>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.Ini.Implement.Ini.WriteValue(System.String,System.String,System.String)">
+            <summary>
+            写入指定section中的指定key的值。如果section或key不存在，则创建它们。
+            </summary>
+            <param name="section"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:CommonUtil.Ini.Implement.Ini.ReadKeys(System.String)">
+            <summary>
+            读取INI文件中指定section中的所有key的名称列表。如果section不存在，则返回一个空列表。
+            </summary>
+            <param name="SectionName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.Ini.Implement.Ini.ReadSection(System.String)">
+            <summary>
+            读取指定section中的所有key及其对应的值，返回一个字典对象。如果section不存在，则返回一个空字典。
+            </summary>
+            <param name="section"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:CommonUtil.Ini.Implement.Ini.DeleteKey(System.String,System.String)">
+            <summary>
+            删除指定section中的指定key。
+            </summary>
+            <param name="section"></param>
+            <param name="key"></param>
+        </member>
+        <member name="M:CommonUtil.Ini.Implement.Ini.DeleteSection(System.String)">
+            <summary>
+            删除指定的section以及其包含的所有key。
+            </summary>
+            <param name="section"></param>
+        </member>
+        <member name="M:CommonUtil.Ini.Implement.Ini.HasSection(System.String)">
+            <summary>
+            判断指定的section是否存在。
+            </summary>
+            <param name="section"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:CommonUtil.Ini.Implement.Ini.HasKey(System.String,System.String)">
+            <summary>
+            判断指定的section中是否存在指定的key。
+            </summary>
+            <param name="section"></param>
+            <param name="key"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="P:CommonUtil.Ini.Interface.IIni.FilePath">
+            <summary>
+            获取或设置INI文件的路径。
+            </summary>
+        </member>
+        <member name="M:CommonUtil.Ini.Interface.IIni.ReadValue(System.String,System.String,System.String)">
+            <summary>
+            获取指定section中的指定key的值。如果section或key不存在，则返回默认值defaultValue。
+            </summary>
+            <param name="section"></param>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.Ini.Interface.IIni.WriteValue(System.String,System.String,System.String)">
+            <summary>
+            设置指定section中的指定key的值。如果section或key不存在，则创建它们。
+            </summary>
+            <param name="section"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:CommonUtil.Ini.Interface.IIni.ReadKeys(System.String)">
+            <summary>
+            获取INI文件中指定section中的所有key的名称列表。如果section不存在，则返回一个空列表。
+            </summary>
+            <param name="SectionName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.Ini.Interface.IIni.ReadSection(System.String)">
+            <summary>
+            读取指定section中的所有key及其对应的值，返回一个字典对象。如果section不存在，则返回一个空字典。
+            </summary>
+            <param name="section"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.Ini.Interface.IIni.DeleteKey(System.String,System.String)">
+            <summary>
+            删除指定section中的指定key。
+            </summary>
+            <param name="section"></param>
+            <param name="key"></param>
+        </member>
+        <member name="M:CommonUtil.Ini.Interface.IIni.DeleteSection(System.String)">
+            <summary>
+            删除指定的section以及其包含的所有key。
+            </summary>
+            <param name="section"></param>
+        </member>
+        <member name="M:CommonUtil.Ini.Interface.IIni.HasSection(System.String)">
+            <summary>
+            确定指定的section是否存在。
+            </summary>
+            <param name="section">查询的名称，不能为空</param>
+            <returns>true表示存在，否则false</returns>
+        </member>
+        <member name="M:CommonUtil.Ini.Interface.IIni.HasKey(System.String,System.String)">
+            <summary>
+            确定指定的section是否包含给定的key。
+            </summary>
+            <param name="section">要查询的部分，不能为空</param>
+            <param name="key">要查询的key，不能为空</param>
+            <returns>true 表示有指定的key，否则false</returns>
+        </member>
+        <member name="M:CommonUtil.JSON.Interface.IJson.SerializeObject``1(``0)">
+            <summary>
+            对象序列化为JSON字符串
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.JSON.Interface.IJson.DeserializeObject``1(System.String)">
+            <summary>
+            JSON字符串反序列化为对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.JSON.Interface.IJson.ReadFromFile``1(System.String)">
+            <summary>
+            从 JSON 文件中读取数据并反序列化为指定类型的对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.JSON.Interface.IJson.WriteToFile``1(System.String,``0)">
+            <summary>
+            将对象序列化为 JSON 字符串并写入到指定文件
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="filePath"></param>
+            <param name="obj"></param>
+        </member>
+        <member name="M:CommonUtil.JSON.Interface.IJson.GetValueFromJson(System.String,System.String)">
+            <summary>
+            从 JSON 字符串中获取指定键的值
+            </summary>
+            <param name="json"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.JSON.Interface.IJson.ReadFromFileAndKey``1(System.String,System.String)">
+            <summary>
+            从 JSON 文件中读取数据，反序列化为字典对象，并根据指定的键获取对应的值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="filePath"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.Log.Implement.UserLog.GetLogPathByLevel(CommonUtil.Log.Interface.LogLevel)">
+            <summary>
+            根据日志级别获取对应的文件路径
+            </summary>
+        </member>
+        <member name="M:CommonUtil.Log.Implement.UserLog.EnsureDirectoryExists(System.String)">
+            <summary>
+            确保日志文件所在目录存在，不存在则创建
+            </summary>
+            <param name="filePath">判断的文件路经</param>
+        </member>
+        <member name="T:CommonUtil.Log.Interface.LogLevel">
+            <summary>
+            用于定义日志级别的枚举类型
+            </summary>
+        </member>
+        <member name="P:CommonUtil.Log.Interface.ILog.LogPrefix">
+            <summary>
+            通用日志目录前缀
+            </summary>
+        </member>
+        <member name="P:CommonUtil.Log.Interface.ILog.FATALDir">
+            <summary>
+            严重错误，导致程序无法继续运行
+            </summary>
+        </member>
+        <member name="P:CommonUtil.Log.Interface.ILog.ERRORDir">
+            <summary>
+            错误，程序运行中出现的问题
+            </summary>
+        </member>
+        <member name="P:CommonUtil.Log.Interface.ILog.WARNDir">
+            <summary>
+            警告，可能会导致问题的情况
+            </summary>
+        </member>
+        <member name="P:CommonUtil.Log.Interface.ILog.INFODir">
+            <summary>
+            信息，程序运行的常规信息
+            </summary>
+        </member>
+        <member name="P:CommonUtil.Log.Interface.ILog.DEBUGDir">
+            <summary>
+            调试，调试程序时使用的信息
+            </summary>
+        </member>
+        <member name="P:CommonUtil.Log.Interface.ILog.TRACEDir">
+            <summary>
+            追踪，最详细的信息，一般只在开发时使用
+            </summary>
+        </member>
+        <member name="P:CommonUtil.Log.Interface.ILog.ALLDir">
+            <summary>
+            记录所有级别的日志
+            </summary>
+        </member>
+        <member name="M:CommonUtil.Log.Interface.ILog.LogInit">
+            <summary>
+            用于初始化日志系统的方法
+            </summary>
+        </member>
+        <member name="M:CommonUtil.Log.Interface.ILog.Dispose">
+            <summary>
+            用于释放日志系统资源的方法
+            </summary>
+        </member>
+        <member name="M:CommonUtil.Log.Interface.ILog.LogWrite(CommonUtil.Log.Interface.LogLevel,System.String)">
+            <summary>
+            用于写入日志信息的方法
+            </summary>
+            <param name="level"></param>
+            <param name="message"></param>
+        </member>
+    </members>
+</doc>

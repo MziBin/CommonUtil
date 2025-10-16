@@ -1,5 +1,7 @@
 <Solution>
-  <Folder Name="/Demo/" />
+  <Folder Name="/Demo/">
+    <Project Path="Demo/LogDemo/LogDemo.csproj" Id="aaa93db2-f29f-43e4-8f07-c2ae740edbcf" />
+  </Folder>
   <Folder Name="/Tests/">
     <Project Path="Tests/MSTests/MSTests.csproj" Id="3e4ad0ec-b671-40c8-8c69-27f21965e732" />
   </Folder>
