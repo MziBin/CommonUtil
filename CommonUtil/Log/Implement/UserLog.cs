@@ -11,13 +11,15 @@ namespace CommonUtil.Log.Implement
 {
     public class UserLog : ILog
     {
+        // 私有构造函数，防止外部实例化
         private UserLog()
         {
-            // 私有构造函数，防止外部实例化
+            // 初始化日志目录
+            LogInit();
         }
 
-        //使用Lazy<T>的单例模式
-        private static readonly Lazy<UserLog> _instance = new Lazy<UserLog>(() => new UserLog());
+        //使用Lazy<T>的延时加载单例模式
+        private static readonly Lazy<UserLog> _instance = new Lazy<UserLog>(() => new UserLog() { });
         public static UserLog Instance => _instance.Value;
 
         //// 正确的双重锁定实现（需添加 volatile）
@@ -44,9 +46,8 @@ namespace CommonUtil.Log.Implement
 
         #region 字段
 
+        // 日志目录前缀，默认为应用程序根目录下的 Log 文件夹
         private string logPrefix = AppDomain.CurrentDomain.BaseDirectory + "Log\\";
-
-
         #endregion
 
         public string LogPrefix
@@ -90,8 +91,9 @@ namespace CommonUtil.Log.Implement
             int threadId = Thread.CurrentThread.ManagedThreadId;
             string threadName = Thread.CurrentThread.Name ?? "Unknown";
             string logContent = $"{timestamp}$&${level}$&${threadId}:{threadName}$&${message}{Environment.NewLine}";
-
+            // 获取对应级别的日志文件路径
             string targetPath = GetLogPathByLevel(level);
+            // 获取ALL级别的日志文件路径
             string allpath = GetLogPathByLevel(LogLevel.ALL);
 
             EnsureDirectoryExists(targetPath);
