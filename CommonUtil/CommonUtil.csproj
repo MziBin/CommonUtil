@@ -90,6 +90,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="CSV\Implement\" />
+    <Folder Include="CSV\Interface\" />
     <Folder Include="DataBase\Implement\" />
     <Folder Include="DataBase\Interface\" />
     <Folder Include="XML\Implement\" />
