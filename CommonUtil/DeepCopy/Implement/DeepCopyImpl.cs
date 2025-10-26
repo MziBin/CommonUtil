@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace CommonUtil.DeepCopy.Implement
 {
-    public class DeepCopy : IDeepCopy
+    public class DeepCopyImpl : IDeepCopy
     {
         /// <summary>
         /// 通过JSON实现深拷贝，两个对象互不影响

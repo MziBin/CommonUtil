@@ -4,6 +4,7 @@
   </Folder>
   <Folder Name="/DemoWPF/">
     <Project Path="DemoWPF/LogDemo/LogDemo.csproj" Id="559561ea-064e-4ce8-8c53-7f62d86c5eb1" />
+    <Project Path="DemoWPF/WinSysDemo/WinSysDemo.csproj" Id="6e715d45-8df4-497a-b156-faf0d108eea8" />
   </Folder>
   <Folder Name="/Tests/">
     <Project Path="Tests/MSTests/MSTests.csproj" Id="3e4ad0ec-b671-40c8-8c69-27f21965e732" />

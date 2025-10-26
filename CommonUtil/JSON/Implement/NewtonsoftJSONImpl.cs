@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace CommonUtil.JSON.Implement
 {
     [Serializable]
-    public class NewtonsoftJSON : IJson
+    public class NewtonsoftJSONImpl : IJson
     {
         public T DeserializeObject<T>(string json)
         {

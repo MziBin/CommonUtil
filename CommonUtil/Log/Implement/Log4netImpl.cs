@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CommonUtil.Log.Implement
 {
-    public class ImpLog4net
+    public class Log4netImpl
     {
 
     }

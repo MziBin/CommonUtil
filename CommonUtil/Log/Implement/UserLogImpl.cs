@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace CommonUtil.Log.Implement
 {
-    public class UserLog : ILog
+    public class UserLogImpl : ILog
     {
         // 私有构造函数，防止外部实例化
-        private UserLog()
+        private UserLogImpl()
         {
             // 初始化日志目录
             LogInit();
         }
 
         //使用Lazy<T>的延时加载单例模式
-        private static readonly Lazy<UserLog> _instance = new Lazy<UserLog>(() => new UserLog() { });
-        public static UserLog Instance => _instance.Value;
+        private static readonly Lazy<UserLogImpl> _instance = new Lazy<UserLogImpl>(() => new UserLogImpl() { });
+        public static UserLogImpl Instance => _instance.Value;
 
         //// 正确的双重锁定实现（需添加 volatile）
         //private static volatile UserLog _instance; // 必须加 volatile
@@ -160,6 +160,14 @@ namespace CommonUtil.Log.Implement
         public void Dispose()
         {
             
+        }
+
+        /// <summary>
+        /// 析构函数
+        /// </summary>
+        ~UserLogImpl()
+        {
+            Dispose();
         }
     }
 }

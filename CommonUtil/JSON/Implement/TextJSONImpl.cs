@@ -10,7 +10,7 @@ namespace CommonUtil.JSON.Implement
 {
 
     [Serializable]
-    public class TextJSON : IJson
+    public class TextJSONImpl : IJson
     {
         public T DeserializeObject<T>(string json)
         {

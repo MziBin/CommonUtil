@@ -14,7 +14,7 @@ namespace LogDemo
 {
     public partial class UserLogDemo01 : Form
     {
-        ILog iLog = CommonUtil.Log.Implement.UserLog.Instance;
+        ILog iLog = CommonUtil.Log.Implement.UserLogImpl.Instance;
 
         public UserLogDemo01()
         {

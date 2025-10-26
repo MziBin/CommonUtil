@@ -77,17 +77,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DeepCopy\Implement\DeepCopy.cs" />
+    <Compile Include="DeepCopy\Implement\DeepCopyImpl.cs" />
     <Compile Include="DeepCopy\Interface\IDeepCopy.cs" />
     <Compile Include="Ini\Implement\Ini.cs" />
     <Compile Include="Ini\Interface\IIni.cs" />
-    <Compile Include="JSON\Implement\NewtonsoftJSON.cs" />
-    <Compile Include="JSON\Implement\TextJSON.cs" />
+    <Compile Include="JSON\Implement\NewtonsoftJSONImpl.cs" />
+    <Compile Include="JSON\Implement\TextJSONImpl.cs" />
     <Compile Include="JSON\Interface\IJson.cs" />
-    <Compile Include="Log\Implement\UserLog.cs" />
-    <Compile Include="Log\Implement\ImpLog4net.cs" />
+    <Compile Include="Log\Implement\UserLogImpl.cs" />
+    <Compile Include="Log\Implement\Log4netImpl.cs" />
     <Compile Include="Log\Interface\ILog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WindwosSystem\Implement\WinSysImpl.cs" />
+    <Compile Include="WindwosSystem\Interface\IWinSys.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CSV\Implement\" />
