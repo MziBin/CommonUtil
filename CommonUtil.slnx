@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/Demo/">
+    <Project Path="Demo/DeepCopyDemo/DeepCopyDemo.csproj" Id="04bf64d5-11cc-4974-8b7e-23f9ba386f5e" />
     <Project Path="Demo/LogDemo/LogDemo.csproj" Id="aaa93db2-f29f-43e4-8f07-c2ae740edbcf" />
   </Folder>
   <Folder Name="/DemoWPF/">

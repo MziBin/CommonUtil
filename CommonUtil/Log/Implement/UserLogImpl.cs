@@ -18,36 +18,14 @@ namespace CommonUtil.Log.Implement
             LogInit();
         }
 
-        //使用Lazy<T>的延时加载单例模式
+        //使用Lazy<T>的延时加载单例模式，就是在创建该对象时才会实例化它，且是线程安全的。程序启动时不会立即创建实例，只有在第一次访问Instance属性时才会创建实例。
         private static readonly Lazy<UserLogImpl> _instance = new Lazy<UserLogImpl>(() => new UserLogImpl() { });
         public static UserLogImpl Instance => _instance.Value;
-
-        //// 正确的双重锁定实现（需添加 volatile）
-        //private static volatile UserLog _instance; // 必须加 volatile
-        //private static readonly object _lock = new object();
-
-        //public static UserLog Instance
-        //{
-        //    get
-        //    {
-        //        if (_instance == null)
-        //        {
-        //            lock (_lock)
-        //            {
-        //                if (_instance == null)
-        //                {
-        //                    _instance = new UserLog();
-        //                }
-        //            }
-        //        }
-        //        return _instance;
-        //    }
-        //}
 
         #region 字段
 
         // 日志目录前缀，默认为应用程序根目录下的 Log 文件夹
-        private string logPrefix = AppDomain.CurrentDomain.BaseDirectory + "Log\\";
+        private string logPrefix = AppDomain.CurrentDomain.BaseDirectory + "\\Log\\";
         #endregion
 
         public string LogPrefix
@@ -63,13 +41,13 @@ namespace CommonUtil.Log.Implement
 
         }
 
-        public string FATALDir { get; set; }
-        public string ERRORDir { get; set; }
-        public string WARNDir { get; set; }
-        public string INFODir { get; set; }
-        public string DEBUGDir { get; set; }
-        public string TRACEDir { get; set; }
-        public string ALLDir { get; set; }
+        private string FATALDir { get; set; }
+        private string ERRORDir { get; set; }
+        private string WARNDir { get; set; }
+        private string INFODir { get; set; }
+        private string DEBUGDir { get; set; }
+        private string TRACEDir { get; set; }
+        private string ALLDir { get; set; }
 
         public void LogInit()
         {
@@ -150,7 +128,9 @@ namespace CommonUtil.Log.Implement
             if (string.IsNullOrEmpty(filePath))
                 return;
 
+            //获取文件所在目录
             string directory = Path.GetDirectoryName(filePath);
+            //判断目录是否存在，不存在则创建
             if (!Directory.Exists(directory))
             {
                 Directory.CreateDirectory(directory);

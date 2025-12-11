@@ -6,11 +6,15 @@
     <members>
         <member name="M:CommonUtil.DeepCopy.Implement.DeepCopyImpl.DeepCopyObjectByTextJson``1(``0)">
             <summary>
-            通过JSON实现深拷贝，两个对象互不影响
+            通过JSON实现深拷贝，两个对象互不影响，支持包含复杂类型的对象
             </summary>
             <typeparam name="T">对象类型</typeparam>
             <param name="obj">要拷贝的对象</param>
             <returns>拷贝后的新对象</returns>
+            复杂类型需满足：
+            1. 有公共无参数构造函数（或通过[JsonConstructor]指定构造函数）；
+            2. 需序列化的成员为公共属性（私有成员需加[JsonInclude]特性）；
+            3. 避免循环引用（若有循环引用，需确保配置了ReferenceHandler.IgnoreCycles）。
         </member>
         <member name="M:CommonUtil.DeepCopy.Implement.DeepCopyImpl.DeepCopyObjectByNewtonsoftJson``1(``0)">
             <summary>
@@ -28,6 +32,14 @@
             <typeparam name="T"></typeparam>
             <param name="obj">要拷贝的对象</param>
             <returns>拷贝后的新对象</returns>
+        </member>
+        <member name="M:CommonUtil.DeepCopy.Implement.DeepCopyImpl.DeepCopyObjectByXML``1(``0)">
+            <summary>
+            通过XML序列化实现深拷贝，两个对象互不影响，XML 序列化对类型有特定要求（如需要无参数构造函数、公共成员等）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
         </member>
         <member name="M:CommonUtil.DeepCopy.Interface.IDeepCopy.DeepCopyObjectByTextJson``1(``0)">
             <summary>
@@ -54,7 +66,7 @@
             <param name="obj">要拷贝的对象</param>
             <returns>拷贝后的新对象</returns>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.Ini.ReadValue(System.String,System.String,System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.ReadValue(System.String,System.String,System.String)">
             <summary>
             读取指定section中的指定key的值。如果section或key不存在，则返回默认值defaultValue。
             </summary>
@@ -63,7 +75,7 @@
             <param name="defaultValue"></param>
             <returns></returns>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.Ini.WriteValue(System.String,System.String,System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.WriteValue(System.String,System.String,System.String)">
             <summary>
             写入指定section中的指定key的值。如果section或key不存在，则创建它们。
             </summary>
@@ -71,14 +83,14 @@
             <param name="key"></param>
             <param name="value"></param>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.Ini.ReadKeys(System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.ReadKeys(System.String)">
             <summary>
             读取INI文件中指定section中的所有key的名称列表。如果section不存在，则返回一个空列表。
             </summary>
             <param name="SectionName"></param>
             <returns></returns>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.Ini.ReadSection(System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.ReadSection(System.String)">
             <summary>
             读取指定section中的所有key及其对应的值，返回一个字典对象。如果section不存在，则返回一个空字典。
             </summary>
@@ -86,20 +98,20 @@
             <returns></returns>
             <exception cref="T:System.NotImplementedException"></exception>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.Ini.DeleteKey(System.String,System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.DeleteKey(System.String,System.String)">
             <summary>
             删除指定section中的指定key。
             </summary>
             <param name="section"></param>
             <param name="key"></param>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.Ini.DeleteSection(System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.DeleteSection(System.String)">
             <summary>
             删除指定的section以及其包含的所有key。
             </summary>
             <param name="section"></param>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.Ini.HasSection(System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.HasSection(System.String)">
             <summary>
             判断指定的section是否存在。
             </summary>
@@ -107,7 +119,7 @@
             <returns></returns>
             <exception cref="T:System.NotImplementedException"></exception>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.Ini.HasKey(System.String,System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.HasKey(System.String,System.String)">
             <summary>
             判断指定的section中是否存在指定的key。
             </summary>
@@ -329,7 +341,11 @@
         </member>
         <member name="M:CommonUtil.WindwosSystem.Implement.WinSysImpl.GetCpuUsage">
             <summary>
-            获取 CPU 使用率（0-100 的整数）
+            获取 CPU 使用率（0-100 的整数），这里使用异步方法以避免阻塞调用线程
+            调用时注意使用 await 关键字，否则调用改方法的页面会卡死。
+            案例：用 await 异步等待 GetCpuUsage()，不阻塞 UI 线程
+            int cpuUsage = await WinSysImpl.Instance.GetCpuUsage();
+            CpuUsage.Text = cpuUsage.ToString() + " %";
             </summary>
         </member>
         <member name="M:CommonUtil.WindwosSystem.Interface.IWinSys.GetCurrentProcessMemoryUsage">
@@ -344,11 +360,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:CommonUtil.WindwosSystem.Interface.IWinSys.GetCpuUsage">
-            <summary>
-            获取CPU使用率，返回值为0到100之间的整数
-            </summary>
-            <returns></returns>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:CommonUtil.WindwosSystem.Interface.IWinSys.GetCpuUsage" -->
     </members>
 </doc>

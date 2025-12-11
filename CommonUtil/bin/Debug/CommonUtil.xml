@@ -4,23 +4,7 @@
         <name>CommonUtil</name>
     </assembly>
     <members>
-        <member name="M:CommonUtil.DeepCopy.Implement.DeepCopyImpl.DeepCopyObjectByTextJson``1(``0)">
-            <summary>
-            通过JSON实现深拷贝，两个对象互不影响
-            </summary>
-            <typeparam name="T">对象类型</typeparam>
-            <param name="obj">要拷贝的对象</param>
-            <returns>拷贝后的新对象</returns>
-        </member>
-        <member name="M:CommonUtil.DeepCopy.Implement.DeepCopyImpl.DeepCopyObjectByNewtonsoftJson``1(``0)">
-            <summary>
-            使用Newtonsoft.Json实现的深拷贝
-            </summary>
-            <typeparam name="T">对象类型</typeparam>
-            <param name="obj">要拷贝的对象</param>
-            <returns>拷贝后的新对象</returns>
-        </member>
-        <member name="M:CommonUtil.DeepCopy.Implement.DeepCopyImpl.DeepCopyObjectByBinary``1(``0)">
+        <member name="M:CommonUtil.DeepCopy.Implement.BinaryDeepCopyImpl.DeepCopy``1(``0)">
             <summary>
             通过二进制序列化实现深拷贝，两个对象互不影响
             需要对象标记为[Serializable]，并且不能有非序列化的字段。
@@ -29,15 +13,7 @@
             <param name="obj">要拷贝的对象</param>
             <returns>拷贝后的新对象</returns>
         </member>
-        <member name="M:CommonUtil.DeepCopy.Interface.IDeepCopy.DeepCopyObjectByTextJson``1(``0)">
-            <summary>
-            通过TextJSON实现深拷贝，两个对象互不影响
-            </summary>
-            <typeparam name="T">对象类型</typeparam>
-            <param name="obj">要拷贝的对象</param>
-            <returns>拷贝后的新对象</returns>
-        </member>
-        <member name="M:CommonUtil.DeepCopy.Interface.IDeepCopy.DeepCopyObjectByNewtonsoftJson``1(``0)">
+        <member name="M:CommonUtil.DeepCopy.Implement.NewtonsoftDeepCopyImpl.DeepCopy``1(``0)">
             <summary>
             使用Newtonsoft.Json实现的深拷贝
             </summary>
@@ -45,16 +21,23 @@
             <param name="obj">要拷贝的对象</param>
             <returns>拷贝后的新对象</returns>
         </member>
-        <member name="M:CommonUtil.DeepCopy.Interface.IDeepCopy.DeepCopyObjectByBinary``1(``0)">
+        <member name="M:CommonUtil.DeepCopy.Implement.TextJsonDeepCopyImpl.DeepCopy``1(``0)">
             <summary>
-            通过二进制序列化实现深拷贝，两个对象互不影响
-            需要对象标记为[Serializable]，并且不能有非序列化的字段。
+            通过JSON实现深拷贝，两个对象互不影响，支持包含复杂类型的对象
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="T">对象类型</typeparam>
             <param name="obj">要拷贝的对象</param>
             <returns>拷贝后的新对象</returns>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.Ini.ReadValue(System.String,System.String,System.String)">
+        <member name="M:CommonUtil.DeepCopy.Interface.IDeepCopy.DeepCopy``1(``0)">
+            <summary>
+            深拷贝，两个对象互不影响
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="obj">要拷贝的对象</param>
+            <returns>拷贝后的新对象</returns>
+        </member>
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.ReadValue(System.String,System.String,System.String)">
             <summary>
             读取指定section中的指定key的值。如果section或key不存在，则返回默认值defaultValue。
             </summary>
@@ -63,7 +46,7 @@
             <param name="defaultValue"></param>
             <returns></returns>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.Ini.WriteValue(System.String,System.String,System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.WriteValue(System.String,System.String,System.String)">
             <summary>
             写入指定section中的指定key的值。如果section或key不存在，则创建它们。
             </summary>
@@ -71,14 +54,14 @@
             <param name="key"></param>
             <param name="value"></param>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.Ini.ReadKeys(System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.ReadKeys(System.String)">
             <summary>
             读取INI文件中指定section中的所有key的名称列表。如果section不存在，则返回一个空列表。
             </summary>
             <param name="SectionName"></param>
             <returns></returns>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.Ini.ReadSection(System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.ReadSection(System.String)">
             <summary>
             读取指定section中的所有key及其对应的值，返回一个字典对象。如果section不存在，则返回一个空字典。
             </summary>
@@ -86,20 +69,20 @@
             <returns></returns>
             <exception cref="T:System.NotImplementedException"></exception>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.Ini.DeleteKey(System.String,System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.DeleteKey(System.String,System.String)">
             <summary>
             删除指定section中的指定key。
             </summary>
             <param name="section"></param>
             <param name="key"></param>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.Ini.DeleteSection(System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.DeleteSection(System.String)">
             <summary>
             删除指定的section以及其包含的所有key。
             </summary>
             <param name="section"></param>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.Ini.HasSection(System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.HasSection(System.String)">
             <summary>
             判断指定的section是否存在。
             </summary>
@@ -107,7 +90,7 @@
             <returns></returns>
             <exception cref="T:System.NotImplementedException"></exception>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.Ini.HasKey(System.String,System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.HasKey(System.String,System.String)">
             <summary>
             判断指定的section中是否存在指定的key。
             </summary>
@@ -180,6 +163,24 @@
             <param name="key">要查询的key，不能为空</param>
             <returns>true 表示有指定的key，否则false</returns>
         </member>
+        <member name="M:CommonUtil.JSON.Extensions.JsonExtensions.ReadFromFile``1(CommonUtil.JSON.Interface.IJson,System.String)">
+            <summary>
+            从 JSON 文件中读取数据并反序列化为指定类型的对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="jsonSerializer"></param>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.JSON.Extensions.JsonExtensions.WriteToFile``1(CommonUtil.JSON.Interface.IJson,System.String,``0)">
+            <summary>
+            将对象序列化为 JSON 字符串并写入到指定文件
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="jsonSerializer"></param>
+            <param name="filePath"></param>
+            <param name="obj"></param>
+        </member>
         <member name="M:CommonUtil.JSON.Interface.IJson.SerializeObject``1(``0)">
             <summary>
             对象序列化为JSON字符串
@@ -196,36 +197,11 @@
             <param name="json"></param>
             <returns></returns>
         </member>
-        <member name="M:CommonUtil.JSON.Interface.IJson.ReadFromFile``1(System.String)">
-            <summary>
-            从 JSON 文件中读取数据并反序列化为指定类型的对象
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="filePath"></param>
-            <returns></returns>
-        </member>
-        <member name="M:CommonUtil.JSON.Interface.IJson.WriteToFile``1(System.String,``0)">
-            <summary>
-            将对象序列化为 JSON 字符串并写入到指定文件
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="filePath"></param>
-            <param name="obj"></param>
-        </member>
         <member name="M:CommonUtil.JSON.Interface.IJson.GetValueFromJson(System.String,System.String)">
             <summary>
             从 JSON 字符串中获取指定键的值
             </summary>
             <param name="json"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:CommonUtil.JSON.Interface.IJson.ReadFromFileAndKey``1(System.String,System.String)">
-            <summary>
-            从 JSON 文件中读取数据，反序列化为字典对象，并根据指定的键获取对应的值
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="filePath"></param>
             <param name="key"></param>
             <returns></returns>
         </member>
@@ -248,51 +224,6 @@
         <member name="T:CommonUtil.Log.Interface.LogLevel">
             <summary>
             用于定义日志级别的枚举类型
-            </summary>
-        </member>
-        <member name="P:CommonUtil.Log.Interface.ILog.LogPrefix">
-            <summary>
-            通用日志目录前缀
-            </summary>
-        </member>
-        <member name="M:CommonUtil.Log.Interface.ILog.LogInit">
-            <summary>
-            用于初始化日志系统的方法
-            </summary>
-        </member>
-        <member name="P:CommonUtil.Log.Interface.ILog.FATALDir">
-            <summary>
-            严重错误，导致程序无法继续运行，的路径
-            </summary>
-        </member>
-        <member name="P:CommonUtil.Log.Interface.ILog.ERRORDir">
-            <summary>
-            错误，程序运行中出现的问题，的路径
-            </summary>
-        </member>
-        <member name="P:CommonUtil.Log.Interface.ILog.WARNDir">
-            <summary>
-            警告，可能会导致问题的情况，的路径
-            </summary>
-        </member>
-        <member name="P:CommonUtil.Log.Interface.ILog.INFODir">
-            <summary>
-            信息，程序运行的常规信息，的路径
-            </summary>
-        </member>
-        <member name="P:CommonUtil.Log.Interface.ILog.DEBUGDir">
-            <summary>
-            调试，调试程序时使用的信息，的路径
-            </summary>
-        </member>
-        <member name="P:CommonUtil.Log.Interface.ILog.TRACEDir">
-            <summary>
-            追踪，最详细的信息，一般只在开发时使用，的路径
-            </summary>
-        </member>
-        <member name="P:CommonUtil.Log.Interface.ILog.ALLDir">
-            <summary>
-            记录所有级别的日志的路径
             </summary>
         </member>
         <member name="M:CommonUtil.Log.Interface.ILog.LogWrite(CommonUtil.Log.Interface.LogLevel,System.String)">
@@ -329,7 +260,11 @@
         </member>
         <member name="M:CommonUtil.WindwosSystem.Implement.WinSysImpl.GetCpuUsage">
             <summary>
-            获取 CPU 使用率（0-100 的整数）
+            获取 CPU 使用率（0-100 的整数），这里使用异步方法以避免阻塞调用线程
+            调用时注意使用 await 关键字，否则调用改方法的页面会卡死。
+            案例：用 await 异步等待 GetCpuUsage()，不阻塞 UI 线程
+            int cpuUsage = await WinSysImpl.Instance.GetCpuUsage();
+            CpuUsage.Text = cpuUsage.ToString() + " %";
             </summary>
         </member>
         <member name="M:CommonUtil.WindwosSystem.Interface.IWinSys.GetCurrentProcessMemoryUsage">
@@ -344,11 +279,99 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:CommonUtil.WindwosSystem.Interface.IWinSys.GetCpuUsage">
+        <!-- Badly formed XML comment ignored for member "M:CommonUtil.WindwosSystem.Interface.IWinSys.GetCpuUsage" -->
+        <member name="P:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.FilePath">
             <summary>
-            获取CPU使用率，返回值为0到100之间的整数
+            获取或设置XML文件路径
             </summary>
-            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.#ctor(System.String)">
+            <summary>
+            构造函数（可选：指定初始文件路径）
+            </summary>
+            <param name="filePath">XML文件路径</param>
+        </member>
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.GetRootNodeName">
+            <summary>
+            获取XML文件的根节点名称
+            </summary>
+            <returns>根节点名称（如无文件则抛出异常）</returns>
+        </member>
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.GetChildNodeNames(System.String)">
+            <summary>
+            获取指定节点的所有子节点名称列表
+            </summary>
+            <param name="nodePath">节点XPath路径（如"/book/chapters"）</param>
+            <returns>子节点名称列表（如无节点则返回空列表）</returns>
+        </member>
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.GetNodeAttributeValue(System.String,System.String)">
+            <summary>
+            获取指定节点的属性值
+            </summary>
+            <param name="nodePath">节点XPath路径</param>
+            <param name="attributeName">属性名称</param>
+            <returns>属性值（如节点或属性不存在则返回null）</returns>
+        </member>
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.SetNodeAttributeValue(System.String,System.String,System.String)">
+            <summary>
+            设置指定节点的属性值（如属性不存在则新增）
+            </summary>
+            <param name="nodePath">节点XPath路径</param>
+            <param name="attributeName">属性名称</param>
+            <param name="attributeValue">属性值</param>
+        </member>
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.GetNodeText(System.String)">
+            <summary>
+            获取指定节点的文本内容
+            </summary>
+            <param name="nodePath">节点XPath路径</param>
+            <returns>节点文本（如节点不存在则返回null）</returns>
+        </member>
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.SetNodeText(System.String,System.String)">
+            <summary>
+            设置指定节点的文本内容
+            </summary>
+            <param name="nodePath">节点XPath路径</param>
+            <param name="text">要设置的文本</param>
+        </member>
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.AddChildNode(System.String,System.String)">
+            <summary>
+            向指定父节点添加子节点
+            </summary>
+            <param name="parentNodePath">父节点XPath路径</param>
+            <param name="childNodeName">子节点名称</param>
+        </member>
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.DeleteNode(System.String)">
+            <summary>
+            删除指定节点
+            </summary>
+            <param name="nodePath">节点XPath路径</param>
+        </member>
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.SerializeObjectToXML``1(System.String,``0)">
+            <summary>
+            将对象序列化为XML并保存到文件
+            </summary>
+            <typeparam name="T">对象类型（需支持XML序列化）</typeparam>
+            <param name="path">保存路径</param>
+            <param name="obj">要序列化的对象</param>
+        </member>
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.DeserializeObjectFromXML``1(System.String)">
+            <summary>
+            从XML文件反序列化为对象
+            </summary>
+            <typeparam name="T">目标对象类型</typeparam>
+            <param name="path">XML文件路径</param>
+            <returns>反序列化后的对象</returns>
+        </member>
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.EnsureFileExists">
+            <summary>
+            确保XML文件存在（如不存在则创建空XML，根节点为"Root"）
+            </summary>
+        </member>
+        <member name="P:CommonUtil.XML.Interface.IXML.FilePath">
+            <summary>
+            获取或设置XML文件的路径。
+            </summary>
         </member>
     </members>
 </doc>

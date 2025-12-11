@@ -22,7 +22,7 @@ namespace MSTests
             // 生成临时文件路径
             _tempIniPath = Path.GetTempFileName();
             // 初始化 Ini 对象并指定文件路径
-            _ini = new Ini
+            _ini = new IniImpl
             {
                 FilePath = _tempIniPath
             };

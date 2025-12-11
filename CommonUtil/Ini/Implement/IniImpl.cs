@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CommonUtil.Ini.Implement
 {
-    public class Ini : IIni
+    public class IniImpl : IIni
     {
         #region API引入
         //GetPrivateProfileString这个方法是在外部别人用c++写好的，不是通过.net编写的，我们只需要声明，我们可以通过DllImport引用，告诉这个方法是在kernel32.dll中

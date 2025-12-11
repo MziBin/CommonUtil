@@ -1,4 +1,6 @@
 ﻿using CommonUtil.JSON.Interface;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,32 +14,44 @@ namespace CommonUtil.JSON.Implement
     {
         public T DeserializeObject<T>(string json)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return JsonConvert.DeserializeObject<T>(json);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"反序列化 JSON 字符串时发生错误: {ex.Message}");
+                return default(T);
+            }
         }
 
         public string GetValueFromJson(string json, string key)
         {
-            throw new NotImplementedException();
-        }
-
-        public T ReadFromFile<T>(string filePath)
-        {
-            throw new NotImplementedException();
-        }
-
-        public T ReadFromFileAndKey<T>(string filePath, string key)
-        {
-            throw new NotImplementedException();
+            try
+            {
+                JObject jsonObject = JObject.Parse(json);
+                JToken token = jsonObject.SelectToken(key);
+                return token?.ToString();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"从 JSON 获取值时发生错误: {ex.Message}");
+                return null;
+            }
         }
 
         public string SerializeObject<T>(T obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return JsonConvert.SerializeObject(obj);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"序列化对象时发生错误: {ex.Message}");
+                return null;
+            }
         }
 
-        public void WriteToFile<T>(string filePath, T obj)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

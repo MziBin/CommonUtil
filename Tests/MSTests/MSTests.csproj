@@ -50,7 +50,10 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeepCopyTests.cs" />
     <Compile Include="IniTests.cs" />
+    <Compile Include="JsonTests.cs" />
+    <Compile Include="LogTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
