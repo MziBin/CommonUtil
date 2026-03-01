@@ -50,11 +50,18 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CryptoHelperTests.cs" />
+    <Compile Include="DateTimeHelperTests.cs" />
     <Compile Include="DeepCopyTests.cs" />
+    <Compile Include="FileHelperTests.cs" />
     <Compile Include="IniTests.cs" />
     <Compile Include="JsonTests.cs" />
     <Compile Include="LogTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringHelperTests.cs" />
+    <Compile Include="ValidationHelperTests.cs" />
+    <Compile Include="WinSysTests.cs" />
+    <Compile Include="XmlTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

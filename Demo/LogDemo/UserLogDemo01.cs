@@ -1,4 +1,5 @@
-﻿using CommonUtil.Log.Interface;
+﻿using CommonUtil.Log.Implement;
+using CommonUtil.Log.Interface;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ namespace LogDemo
 {
     public partial class UserLogDemo01 : Form
     {
-        ILog iLog = CommonUtil.Log.Implement.UserLogImpl.Instance;
+        UserLogImpl iLog = CommonUtil.Log.Implement.UserLogImpl.Instance;
 
         public UserLogDemo01()
         {

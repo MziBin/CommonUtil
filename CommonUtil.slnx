@@ -1,6 +1,9 @@
 <Solution>
   <Folder Name="/Demo/">
+    <Project Path="Demo/AllInOneDemo/AllInOneDemo.csproj" Id="5a3b2c4d-6e7f-0000-0000-000000000000" />
     <Project Path="Demo/DeepCopyDemo/DeepCopyDemo.csproj" Id="04bf64d5-11cc-4974-8b7e-23f9ba386f5e" />
+    <Project Path="Demo/EnhancedMillisecondTimerDemo/EnhancedMillisecondTimerDemo.csproj" Id="14c2eec5-ad9c-45de-b04d-8bba83ac0264" />
+    <Project Path="Demo/LanguageDemo/LanguageDemo.csproj" Id="e83a70e4-0467-483a-882e-89ccf1b16aff" />
     <Project Path="Demo/LogDemo/LogDemo.csproj" Id="aaa93db2-f29f-43e4-8f07-c2ae740edbcf" />
   </Folder>
   <Folder Name="/DemoWPF/">

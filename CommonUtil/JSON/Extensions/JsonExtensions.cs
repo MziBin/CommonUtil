@@ -4,6 +4,9 @@ using System.IO;
 
 namespace CommonUtil.JSON.Extensions
 {
+    /// <summary>
+    /// 对 IJson 接口的扩展方法
+    /// </summary>
     public static class JsonExtensions
     {
         /// <summary>

@@ -41,13 +41,13 @@ namespace CommonUtil.Log.Implement
 
         }
 
-        private string FATALDir { get; set; }
-        private string ERRORDir { get; set; }
-        private string WARNDir { get; set; }
-        private string INFODir { get; set; }
-        private string DEBUGDir { get; set; }
-        private string TRACEDir { get; set; }
-        private string ALLDir { get; set; }
+        public string FATALDir { get; set; }
+        public string ERRORDir { get; set; }
+        public string WARNDir { get; set; }
+        public string INFODir { get; set; }
+        public string DEBUGDir { get; set; }
+        public string TRACEDir { get; set; }
+        public string ALLDir { get; set; }
 
         public void LogInit()
         {

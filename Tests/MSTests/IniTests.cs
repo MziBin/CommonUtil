@@ -21,11 +21,8 @@ namespace MSTests
         {
             // 生成临时文件路径
             _tempIniPath = Path.GetTempFileName();
-            // 初始化 Ini 对象并指定文件路径
-            _ini = new IniImpl
-            {
-                FilePath = _tempIniPath
-            };
+            // 初始化 Ini 对象
+            _ini = new IniImpl();
         }
 
         /// <summary>
@@ -53,8 +50,8 @@ namespace MSTests
             string value = "TestValue";
 
             // 执行：写入并读取值
-            _ini.WriteValue(section, key, value);
-            string result = _ini.ReadValue(section, key);
+            _ini.WriteValue(_tempIniPath, section, key, value);
+            string result = _ini.ReadValue(_tempIniPath, section, key);
 
             // 断言：读取值应与写入值一致
             Assert.AreEqual(value, result, "读取值与写入值不一致");
@@ -72,7 +69,7 @@ namespace MSTests
             string defaultValue = "DefaultValue";
 
             // 执行：读取不存在的键（指定默认值）
-            string result = _ini.ReadValue(section, key, defaultValue);
+            string result = _ini.ReadValue(_tempIniPath, section, key, defaultValue);
 
             // 断言：结果应等于默认值
             Assert.AreEqual(defaultValue, result, "未返回正确的默认值");
@@ -91,11 +88,11 @@ namespace MSTests
             List<string> expectedKeys = new List<string> { "Key1", "Key2", "Key3" };
             foreach (var key in expectedKeys)
             {
-                _ini.WriteValue(section, key, "DummyValue");
+                _ini.WriteValue(_tempIniPath, section, key, "DummyValue");
             }
 
             // 执行：读取该 section 的所有键
-            List<string> resultKeys = _ini.ReadKeys(section);
+            List<string> resultKeys = _ini.ReadKeys(_tempIniPath, section);
 
             // 断言：读取的键列表应与预期一致（不要求顺序，只要求元素等价）
             CollectionAssert.AreEquivalent(expectedKeys, resultKeys, "读取的键列表与预期不一致");
@@ -118,11 +115,11 @@ namespace MSTests
             };
             foreach (var pair in expectedDict)
             {
-                _ini.WriteValue(section, pair.Key, pair.Value);
+                _ini.WriteValue(_tempIniPath, section, pair.Key, pair.Value);
             }
 
             // 执行：读取该 section 的所有键值对
-            Dictionary<string, string> resultDict = _ini.ReadSection(section);
+            Dictionary<string, string> resultDict = _ini.ReadSection(_tempIniPath, section);
 
             // 断言：读取的字典应与预期一致（不要求顺序，只要求键值对等价）
             CollectionAssert.AreEquivalent(expectedDict, resultDict, "读取的键值对与预期不一致");
@@ -140,11 +137,11 @@ namespace MSTests
             string section = "DeleteSection";
             string key = "KeyToDelete";
             string value = "ValueToDelete";
-            _ini.WriteValue(section, key, value);
+            _ini.WriteValue(_tempIniPath, section, key, value);
 
             // 执行：删除键
-            _ini.DeleteKey(section, key);
-            string result = _ini.ReadValue(section, key);
+            _ini.DeleteKey(_tempIniPath, section, key);
+            string result = _ini.ReadValue(_tempIniPath, section, key);
 
             // 断言：读取结果应为空（表示键已被删除）
             Assert.AreEqual(string.Empty, result, "键未成功删除");
@@ -162,11 +159,11 @@ namespace MSTests
             string section = "SectionToDelete";
             string key = "KeyInSection";
             string value = "ValueInSection";
-            _ini.WriteValue(section, key, value);
+            _ini.WriteValue(_tempIniPath, section, key, value);
 
             // 执行：删除 section
-            _ini.DeleteSection(section);
-            List<string> keys = _ini.ReadKeys(section);
+            _ini.DeleteSection(_tempIniPath, section);
+            List<string> keys = _ini.ReadKeys(_tempIniPath, section);
 
             // 断言：该 section 下的键数量应为 0（表示 section 已被删除）
             Assert.AreEqual(0, keys.Count, "Section 未成功删除");
@@ -182,10 +179,10 @@ namespace MSTests
         {
             // 准备：写入一个 section（即使只有一个虚拟键）
             string section = "ExistingSection";
-            _ini.WriteValue(section, "DummyKey", "DummyValue");
+            _ini.WriteValue(_tempIniPath, section, "DummyKey", "DummyValue");
 
             // 执行：判断 section 是否存在
-            bool result = _ini.HasSection(section);
+            bool result = _ini.HasSection(_tempIniPath, section);
 
             // 断言：应返回 true
             Assert.IsTrue(result, "存在的 Section 未被正确识别");
@@ -201,7 +198,7 @@ namespace MSTests
             string section = "NonExistingSection";
 
             // 执行：判断 section 是否存在
-            bool result = _ini.HasSection(section);
+            bool result = _ini.HasSection(_tempIniPath, section);
 
             // 断言：应返回 false
             Assert.IsFalse(result, "不存在的 Section 被错误识别为存在");
@@ -218,10 +215,10 @@ namespace MSTests
             // 准备：写入一个键值对
             string section = "KeySection";
             string key = "ExistingKey";
-            _ini.WriteValue(section, key, "Value");
+            _ini.WriteValue(_tempIniPath, section, key, "Value");
 
             // 执行：判断键是否存在
-            bool result = _ini.HasKey(section, key);
+            bool result = _ini.HasKey(_tempIniPath, section, key);
 
             // 断言：应返回 true
             Assert.IsTrue(result, "存在的 Key 未被正确识别");
@@ -238,7 +235,7 @@ namespace MSTests
             string key = "NonExistingKey";
 
             // 执行：判断键是否存在
-            bool result = _ini.HasKey(section, key);
+            bool result = _ini.HasKey(_tempIniPath, section, key);
 
             // 断言：应返回 false
             Assert.IsFalse(result, "不存在的 Key 被错误识别为存在");

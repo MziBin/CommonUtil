@@ -76,7 +76,7 @@ namespace CommonUtil.Log.Implement
                 //写入日志文件
                 try
                 {
-                    File.AppendAllText(logItem.FilePath, logItem.Content + Environment.NewLine);
+                    File.AppendAllText(logItem.FilePath, logItem.Content + Environment.NewLine, Encoding.UTF8);
                 }
                 catch (Exception ex)
                 {

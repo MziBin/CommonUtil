@@ -4,6 +4,434 @@
         <name>CommonUtil</name>
     </assembly>
     <members>
+        <member name="T:CommonUtil.CSVOrDataTable.CsvOrDataTableHelper">
+            <summary>
+            CSV文件操作助手类，提供静态方法简化CSV文件操作
+            </summary>
+        </member>
+        <member name="M:CommonUtil.CSVOrDataTable.CsvOrDataTableHelper.ReadCsvToDataTable(System.String,System.Boolean,System.Char)">
+            <summary>
+            从CSV文件读取数据到DataTable
+            </summary>
+            <param name="filePath">CSV文件路径</param>
+            <param name="hasHeader">CSV文件是否包含表头</param>
+            <param name="delimiter">分隔符，默认为逗号</param>
+            <returns>包含CSV数据的DataTable</returns>
+        </member>
+        <member name="M:CommonUtil.CSVOrDataTable.CsvOrDataTableHelper.WriteDataTableToCsv(System.String,System.Data.DataTable,System.Char)">
+            <summary>
+            将DataTable数据写入到CSV文件
+            </summary>
+            <param name="filePath">CSV文件路径</param>
+            <param name="dataTable">要写入的DataTable</param>
+            <param name="delimiter">分隔符，默认为逗号</param>
+        </member>
+        <member name="M:CommonUtil.CSVOrDataTable.CsvOrDataTableHelper.AppendDataTableToCsv(System.String,System.Data.DataTable,System.Boolean,System.Char)">
+            <summary>
+            向CSV文件追加数据
+            </summary>
+            <param name="filePath">CSV文件路径</param>
+            <param name="dataTable">要追加的数据</param>
+            <param name="hasHeader">是否包含表头，默认为false</param>
+            <param name="delimiter">分隔符，默认为逗号</param>
+        </member>
+        <member name="T:CommonUtil.CSVOrDataTable.Implement.CSVOrDataTableImpl">
+            <summary>
+            CSV文件操作实现类，提供CSV数据与DataTable互相转换的功能
+            </summary>
+        </member>
+        <member name="M:CommonUtil.CSVOrDataTable.Implement.CSVOrDataTableImpl.ReadCsvToDataTable(System.String,System.Boolean,System.Char)">
+            <summary>
+            从CSV文件读取数据到DataTable
+            </summary>
+            <param name="filePath">CSV文件路径</param>
+            <param name="hasHeader">CSV文件是否包含表头</param>
+            <param name="delimiter">分隔符，默认为逗号</param>
+            <returns>包含CSV数据的DataTable</returns>
+        </member>
+        <member name="M:CommonUtil.CSVOrDataTable.Implement.CSVOrDataTableImpl.WriteDataTableToCsv(System.String,System.Data.DataTable,System.Char)">
+            <summary>
+            将DataTable数据写入到CSV文件
+            </summary>
+            <param name="filePath">CSV文件路径</param>
+            <param name="dataTable">要写入的DataTable</param>
+            <param name="delimiter">分隔符，默认为逗号</param>
+        </member>
+        <member name="M:CommonUtil.CSVOrDataTable.Implement.CSVOrDataTableImpl.AppendDataTableToCsv(System.String,System.Data.DataTable,System.Boolean,System.Char)">
+            <summary>
+            向CSV文件追加数据
+            </summary>
+            <param name="filePath">CSV文件路径</param>
+            <param name="dataTable">要追加的数据</param>
+            <param name="hasHeader">是否包含表头，默认为false</param>
+            <param name="delimiter">分隔符，默认为逗号</param>
+        </member>
+        <member name="M:CommonUtil.CSVOrDataTable.Implement.CSVOrDataTableImpl.SplitCsvLine(System.String,System.Char)">
+            <summary>
+            分割CSV行，处理包含分隔符的字段
+            </summary>
+            <param name="line">CSV行</param>
+            <param name="delimiter">分隔符</param>
+            <returns>分割后的字段数组</returns>
+        </member>
+        <member name="M:CommonUtil.CSVOrDataTable.Implement.CSVOrDataTableImpl.EscapeCsvValue(System.String,System.Char)">
+            <summary>
+            转义CSV值，处理包含分隔符、引号或换行符的情况
+            </summary>
+            <param name="value">要转义的值</param>
+            <param name="delimiter">分隔符</param>
+            <returns>转义后的值</returns>
+        </member>
+        <member name="M:CommonUtil.CSVOrDataTable.Implement.CSVOrDataTableImpl.AddRowToDataTable(System.Data.DataTable,System.String[])">
+            <summary>
+            向DataTable添加行
+            </summary>
+            <param name="dataTable">目标DataTable</param>
+            <param name="values">行数据</param>
+        </member>
+        <member name="T:CommonUtil.CSVOrDataTable.Interface.ICSVOrDataTable">
+            <summary>
+            CSV文件操作接口，提供将CSV数据与DataTable互相转换的功能
+            </summary>
+        </member>
+        <member name="M:CommonUtil.CSVOrDataTable.Interface.ICSVOrDataTable.ReadCsvToDataTable(System.String,System.Boolean,System.Char)">
+            <summary>
+            从CSV文件读取数据到DataTable
+            </summary>
+            <param name="filePath">CSV文件路径</param>
+            <param name="hasHeader">CSV文件是否包含表头</param>
+            <param name="delimiter">分隔符，默认为逗号</param>
+            <returns>包含CSV数据的DataTable</returns>
+        </member>
+        <member name="M:CommonUtil.CSVOrDataTable.Interface.ICSVOrDataTable.WriteDataTableToCsv(System.String,System.Data.DataTable,System.Char)">
+            <summary>
+            将DataTable数据写入到CSV文件
+            </summary>
+            <param name="filePath">CSV文件路径</param>
+            <param name="dataTable">要写入的DataTable</param>
+            <param name="delimiter">分隔符，默认为逗号</param>
+        </member>
+        <member name="M:CommonUtil.CSVOrDataTable.Interface.ICSVOrDataTable.AppendDataTableToCsv(System.String,System.Data.DataTable,System.Boolean,System.Char)">
+            <summary>
+            向CSV文件追加数据
+            </summary>
+            <param name="filePath">CSV文件路径</param>
+            <param name="dataTable">要追加的数据</param>
+            <param name="hasHeader">是否包含表头，默认为false</param>
+            <param name="delimiter">分隔符，默认为逗号</param>
+        </member>
+        <member name="T:CommonUtil.CryptoHelper">
+            <summary>
+            加密解密工具类，提供常用的加密解密方法
+            </summary>
+        </member>
+        <member name="M:CommonUtil.CryptoHelper.Md5(System.String)">
+            <summary>
+            计算字符串的MD5值
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>MD5值（32位小写）</returns>
+        </member>
+        <member name="M:CommonUtil.CryptoHelper.Md5File(System.String)">
+            <summary>
+            计算文件的MD5值
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>文件的MD5值（32位小写）</returns>
+        </member>
+        <member name="M:CommonUtil.CryptoHelper.Sha1(System.String)">
+            <summary>
+            计算字符串的SHA1值
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>SHA1值（40位小写）</returns>
+        </member>
+        <member name="M:CommonUtil.CryptoHelper.Sha256(System.String)">
+            <summary>
+            计算字符串的SHA256值
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>SHA256值（64位小写）</returns>
+        </member>
+        <member name="M:CommonUtil.CryptoHelper.Sha512(System.String)">
+            <summary>
+            计算字符串的SHA512值
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>SHA512值（128位小写）</returns>
+        </member>
+        <member name="M:CommonUtil.CryptoHelper.AesEncrypt(System.String,System.String,System.String)">
+            <summary>
+            AES加密字符串
+            </summary>
+            <param name="input">输入字符串</param>
+            <param name="key">密钥（必须为16、24或32字节）</param>
+            <param name="iv">初始化向量（必须为16字节）</param>
+            <returns>加密后的Base64字符串</returns>
+        </member>
+        <member name="M:CommonUtil.CryptoHelper.AesDecrypt(System.String,System.String,System.String)">
+            <summary>
+            AES解密字符串
+            </summary>
+            <param name="encryptedText">加密后的Base64字符串</param>
+            <param name="key">密钥（必须为16、24或32字节）</param>
+            <param name="iv">初始化向量（必须为16字节）</param>
+            <returns>解密后的字符串</returns>
+        </member>
+        <member name="M:CommonUtil.CryptoHelper.Base64Encode(System.String)">
+            <summary>
+            Base64编码字符串
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>Base64编码后的字符串</returns>
+        </member>
+        <member name="M:CommonUtil.CryptoHelper.Base64Decode(System.String)">
+            <summary>
+            Base64解码字符串
+            </summary>
+            <param name="base64String">Base64编码的字符串</param>
+            <returns>解码后的字符串</returns>
+        </member>
+        <member name="M:CommonUtil.CryptoHelper.Base64EncodeFile(System.String)">
+            <summary>
+            Base64编码文件
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>Base64编码后的字符串</returns>
+        </member>
+        <member name="M:CommonUtil.CryptoHelper.Base64DecodeToFile(System.String,System.String)">
+            <summary>
+            Base64解码到文件
+            </summary>
+            <param name="base64String">Base64编码的字符串</param>
+            <param name="filePath">输出文件路径</param>
+        </member>
+        <member name="T:CommonUtil.DateTimeHelper">
+            <summary>
+            日期时间处理工具类，提供常用的日期时间操作方法
+            </summary>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.Format(System.DateTime,System.String)">
+            <summary>
+            将日期时间格式化为指定格式的字符串
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <param name="format">格式化字符串，默认为"yyyy-MM-dd HH:mm:ss"</param>
+            <returns>格式化后的日期时间字符串</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.FormatDate(System.DateTime,System.String)">
+            <summary>
+            将日期格式化为指定格式的字符串
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <param name="format">格式化字符串，默认为"yyyy-MM-dd"</param>
+            <returns>格式化后的日期字符串</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.FormatTime(System.DateTime,System.String)">
+            <summary>
+            将时间格式化为指定格式的字符串
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <param name="format">格式化字符串，默认为"HH:mm:ss"</param>
+            <returns>格式化后的时间字符串</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.AddDays(System.DateTime,System.Int32)">
+            <summary>
+            向日期时间添加指定天数
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <param name="days">要添加的天数</param>
+            <returns>添加天数后的日期时间</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.AddMonths(System.DateTime,System.Int32)">
+            <summary>
+            向日期时间添加指定月数
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <param name="months">要添加的月数</param>
+            <returns>添加月数后的日期时间</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.AddYears(System.DateTime,System.Int32)">
+            <summary>
+            向日期时间添加指定年数
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <param name="years">要添加的年数</param>
+            <returns>添加年数后的日期时间</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.GetDaysDifference(System.DateTime,System.DateTime)">
+            <summary>
+            计算两个日期之间的天数差
+            </summary>
+            <param name="startDate">开始日期</param>
+            <param name="endDate">结束日期</param>
+            <returns>天数差</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.GetMonthsDifference(System.DateTime,System.DateTime)">
+            <summary>
+            计算两个日期之间的月数差
+            </summary>
+            <param name="startDate">开始日期</param>
+            <param name="endDate">结束日期</param>
+            <returns>月数差</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.GetYearsDifference(System.DateTime,System.DateTime)">
+            <summary>
+            计算两个日期之间的年数差
+            </summary>
+            <param name="startDate">开始日期</param>
+            <param name="endDate">结束日期</param>
+            <returns>年数差</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.IsToday(System.DateTime)">
+            <summary>
+            判断日期是否是今天
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <returns>如果是今天则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.IsYesterday(System.DateTime)">
+            <summary>
+            判断日期是否是昨天
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <returns>如果是昨天则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.IsTomorrow(System.DateTime)">
+            <summary>
+            判断日期是否是明天
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <returns>如果是明天则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.IsThisWeek(System.DateTime)">
+            <summary>
+            判断日期是否是本周
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <returns>如果是本周则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.IsThisMonth(System.DateTime)">
+            <summary>
+            判断日期是否是本月
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <returns>如果是本月则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.IsThisYear(System.DateTime)">
+            <summary>
+            判断日期是否是本年
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <returns>如果是本年则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.Parse(System.String,System.String)">
+            <summary>
+            将字符串转换为日期时间
+            </summary>
+            <param name="dateString">日期时间字符串</param>
+            <param name="format">格式化字符串，默认为"yyyy-MM-dd HH:mm:ss"</param>
+            <returns>转换后的日期时间</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.Parse(System.String,System.DateTime,System.String)">
+            <summary>
+            将字符串转换为日期时间，转换失败时返回默认值
+            </summary>
+            <param name="dateString">日期时间字符串</param>
+            <param name="defaultValue">转换失败时的默认值</param>
+            <param name="format">格式化字符串，默认为"yyyy-MM-dd HH:mm:ss"</param>
+            <returns>转换后的日期时间或默认值</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.ToTimestamp(System.DateTime)">
+            <summary>
+            将日期时间转换为时间戳（秒）
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <returns>时间戳（秒）</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.ToTimestampMilliseconds(System.DateTime)">
+            <summary>
+            将日期时间转换为时间戳（毫秒）
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <returns>时间戳（毫秒）</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.FromTimestamp(System.Int64)">
+            <summary>
+            将时间戳（秒）转换为日期时间
+            </summary>
+            <param name="timestamp">时间戳（秒）</param>
+            <returns>转换后的日期时间</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.FromTimestampMilliseconds(System.Int64)">
+            <summary>
+            将时间戳（毫秒）转换为日期时间
+            </summary>
+            <param name="timestamp">时间戳（毫秒）</param>
+            <returns>转换后的日期时间</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.GetMondayOfCurrentWeek(System.DateTime)">
+            <summary>
+            获取本周一的日期
+            </summary>
+            <param name="dateTime">日期时间，默认为当前时间</param>
+            <returns>本周一的日期</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.GetFirstDayOfCurrentMonth(System.DateTime)">
+            <summary>
+            获取本月第一天的日期
+            </summary>
+            <param name="dateTime">日期时间，默认为当前时间</param>
+            <returns>本月第一天的日期</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.GetLastDayOfCurrentMonth(System.DateTime)">
+            <summary>
+            获取本月最后一天的日期
+            </summary>
+            <param name="dateTime">日期时间，默认为当前时间</param>
+            <returns>本月最后一天的日期</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.GetFirstDayOfCurrentYear(System.DateTime)">
+            <summary>
+            获取本年第一天的日期
+            </summary>
+            <param name="dateTime">日期时间，默认为当前时间</param>
+            <returns>本年第一天的日期</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.GetLastDayOfCurrentYear(System.DateTime)">
+            <summary>
+            获取本年最后一天的日期
+            </summary>
+            <param name="dateTime">日期时间，默认为当前时间</param>
+            <returns>本年最后一天的日期</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.GetChineseDayOfWeek(System.DateTime)">
+            <summary>
+            获取星期几的中文名称
+            </summary>
+            <param name="dateTime">日期时间，默认为当前时间</param>
+            <returns>星期几的中文名称</returns>
+        </member>
+        <member name="M:CommonUtil.DateTimeHelper.GetChineseMonth(System.DateTime)">
+            <summary>
+            获取月份的中文名称
+            </summary>
+            <param name="dateTime">日期时间，默认为当前时间</param>
+            <returns>月份的中文名称</returns>
+        </member>
+        <member name="T:CommonUtil.DeepCopy.DeepCopyHelper">
+            <summary>
+            深拷贝助手类，提供静态方法简化深拷贝操作
+            </summary>
+        </member>
+        <member name="M:CommonUtil.DeepCopy.DeepCopyHelper.DeepCopy``1(``0)">
+            <summary>
+            深拷贝，两个对象互不影响
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="obj">要拷贝的对象</param>
+            <returns>拷贝后的新对象</returns>
+        </member>
         <member name="M:CommonUtil.DeepCopy.Implement.BinaryDeepCopyImpl.DeepCopy``1(``0)">
             <summary>
             通过二进制序列化实现深拷贝，两个对象互不影响
@@ -37,131 +465,405 @@
             <param name="obj">要拷贝的对象</param>
             <returns>拷贝后的新对象</returns>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.IniImpl.ReadValue(System.String,System.String,System.String)">
+        <member name="T:CommonUtil.FileHelper">
+            <summary>
+            文件操作工具类，提供常用的文件和目录操作方法
+            </summary>
+        </member>
+        <member name="M:CommonUtil.FileHelper.ReadText(System.String,System.Text.Encoding)">
+            <summary>
+            读取文本文件内容
+            </summary>
+            <param name="filePath">文件路径</param>
+            <param name="encoding">编码，默认为UTF-8</param>
+            <returns>文件内容</returns>
+        </member>
+        <member name="M:CommonUtil.FileHelper.WriteText(System.String,System.String,System.Text.Encoding)">
+            <summary>
+            写入文本到文件
+            </summary>
+            <param name="filePath">文件路径</param>
+            <param name="content">要写入的内容</param>
+            <param name="encoding">编码，默认为UTF-8</param>
+        </member>
+        <member name="M:CommonUtil.FileHelper.AppendText(System.String,System.String,System.Text.Encoding)">
+            <summary>
+            追加文本到文件
+            </summary>
+            <param name="filePath">文件路径</param>
+            <param name="content">要追加的内容</param>
+            <param name="encoding">编码，默认为UTF-8</param>
+        </member>
+        <member name="M:CommonUtil.FileHelper.ReadAllLines(System.String,System.Text.Encoding)">
+            <summary>
+            读取文件所有行
+            </summary>
+            <param name="filePath">文件路径</param>
+            <param name="encoding">编码，默认为UTF-8</param>
+            <returns>文件行列表</returns>
+        </member>
+        <member name="M:CommonUtil.FileHelper.WriteAllLines(System.String,System.Collections.Generic.List{System.String},System.Text.Encoding)">
+            <summary>
+            写入多行到文件
+            </summary>
+            <param name="filePath">文件路径</param>
+            <param name="lines">要写入的行列表</param>
+            <param name="encoding">编码，默认为UTF-8</param>
+        </member>
+        <member name="M:CommonUtil.FileHelper.CopyFile(System.String,System.String,System.Boolean)">
+            <summary>
+            复制文件
+            </summary>
+            <param name="sourceFilePath">源文件路径</param>
+            <param name="destFilePath">目标文件路径</param>
+            <param name="overwrite">是否覆盖已存在的文件，默认为true</param>
+        </member>
+        <member name="M:CommonUtil.FileHelper.MoveFile(System.String,System.String)">
+            <summary>
+            移动文件
+            </summary>
+            <param name="sourceFilePath">源文件路径</param>
+            <param name="destFilePath">目标文件路径</param>
+        </member>
+        <member name="M:CommonUtil.FileHelper.DeleteFile(System.String)">
+            <summary>
+            删除文件
+            </summary>
+            <param name="filePath">文件路径</param>
+        </member>
+        <member name="M:CommonUtil.FileHelper.FileExists(System.String)">
+            <summary>
+            检查文件是否存在
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>如果文件存在则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.FileHelper.GetFileSize(System.String)">
+            <summary>
+            获取文件大小（字节）
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>文件大小（字节）</returns>
+        </member>
+        <member name="M:CommonUtil.FileHelper.GetCreationTime(System.String)">
+            <summary>
+            获取文件创建时间
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>创建时间</returns>
+        </member>
+        <member name="M:CommonUtil.FileHelper.GetLastWriteTime(System.String)">
+            <summary>
+            获取文件修改时间
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>修改时间</returns>
+        </member>
+        <member name="M:CommonUtil.FileHelper.GetFileExtension(System.String)">
+            <summary>
+            获取文件扩展名（不含点）
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>文件扩展名</returns>
+        </member>
+        <member name="M:CommonUtil.FileHelper.GetFileNameWithoutExtension(System.String)">
+            <summary>
+            获取文件名（不含扩展名）
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>文件名（不含扩展名）</returns>
+        </member>
+        <member name="M:CommonUtil.FileHelper.GetFileName(System.String)">
+            <summary>
+            获取文件名（含扩展名）
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>文件名（含扩展名）</returns>
+        </member>
+        <member name="M:CommonUtil.FileHelper.DirectoryExists(System.String)">
+            <summary>
+            检查目录是否存在
+            </summary>
+            <param name="directoryPath">目录路径</param>
+            <returns>如果目录存在则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.FileHelper.CreateDirectory(System.String)">
+            <summary>
+            创建目录
+            </summary>
+            <param name="directoryPath">目录路径</param>
+        </member>
+        <member name="M:CommonUtil.FileHelper.DeleteDirectory(System.String,System.Boolean)">
+            <summary>
+            删除目录
+            </summary>
+            <param name="directoryPath">目录路径</param>
+            <param name="recursive">是否递归删除子目录和文件，默认为true</param>
+        </member>
+        <member name="M:CommonUtil.FileHelper.GetFiles(System.String,System.String,System.IO.SearchOption)">
+            <summary>
+            获取目录下的所有文件
+            </summary>
+            <param name="directoryPath">目录路径</param>
+            <param name="searchPattern">搜索模式，默认为"*.*"</param>
+            <param name="searchOption">搜索选项，默认为TopDirectoryOnly</param>
+            <returns>文件路径列表</returns>
+        </member>
+        <member name="M:CommonUtil.FileHelper.GetDirectories(System.String,System.String,System.IO.SearchOption)">
+            <summary>
+            获取目录下的所有子目录
+            </summary>
+            <param name="directoryPath">目录路径</param>
+            <param name="searchPattern">搜索模式，默认为"*"</param>
+            <param name="searchOption">搜索选项，默认为TopDirectoryOnly</param>
+            <returns>目录路径列表</returns>
+        </member>
+        <member name="M:CommonUtil.FileHelper.CombinePaths(System.String[])">
+            <summary>
+            合并路径
+            </summary>
+            <param name="paths">要合并的路径</param>
+            <returns>合并后的路径</returns>
+        </member>
+        <member name="M:CommonUtil.FileHelper.GetAbsolutePath(System.String)">
+            <summary>
+            获取绝对路径
+            </summary>
+            <param name="relativePath">相对路径</param>
+            <returns>绝对路径</returns>
+        </member>
+        <member name="M:CommonUtil.FileHelper.GetCurrentDirectory">
+            <summary>
+            获取当前应用程序目录
+            </summary>
+            <returns>当前应用程序目录</returns>
+        </member>
+        <member name="M:CommonUtil.FileHelper.GetTempDirectory">
+            <summary>
+            获取临时目录
+            </summary>
+            <returns>临时目录路径</returns>
+        </member>
+        <member name="M:CommonUtil.FileHelper.GetTempFilePath(System.String)">
+            <summary>
+            获取临时文件路径
+            </summary>
+            <param name="extension">文件扩展名，默认为".tmp"</param>
+            <returns>临时文件路径</returns>
+        </member>
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.ReadValue(System.String,System.String,System.String,System.String)">
             <summary>
             读取指定section中的指定key的值。如果section或key不存在，则返回默认值defaultValue。
             </summary>
+            <param name="filePath">INI文件路径</param>
             <param name="section"></param>
             <param name="key"></param>
             <param name="defaultValue"></param>
             <returns></returns>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.IniImpl.WriteValue(System.String,System.String,System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.WriteValue(System.String,System.String,System.String,System.String)">
             <summary>
             写入指定section中的指定key的值。如果section或key不存在，则创建它们。
             </summary>
+            <param name="filePath">INI文件路径</param>
             <param name="section"></param>
             <param name="key"></param>
             <param name="value"></param>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.IniImpl.ReadKeys(System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.ReadKeys(System.String,System.String)">
             <summary>
             读取INI文件中指定section中的所有key的名称列表。如果section不存在，则返回一个空列表。
             </summary>
+            <param name="filePath">INI文件路径</param>
             <param name="SectionName"></param>
             <returns></returns>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.IniImpl.ReadSection(System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.ReadSection(System.String,System.String)">
             <summary>
             读取指定section中的所有key及其对应的值，返回一个字典对象。如果section不存在，则返回一个空字典。
             </summary>
+            <param name="filePath">INI文件路径</param>
             <param name="section"></param>
             <returns></returns>
             <exception cref="T:System.NotImplementedException"></exception>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.IniImpl.DeleteKey(System.String,System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.DeleteKey(System.String,System.String,System.String)">
             <summary>
             删除指定section中的指定key。
             </summary>
+            <param name="filePath">INI文件路径</param>
             <param name="section"></param>
             <param name="key"></param>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.IniImpl.DeleteSection(System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.DeleteSection(System.String,System.String)">
             <summary>
             删除指定的section以及其包含的所有key。
             </summary>
+            <param name="filePath">INI文件路径</param>
             <param name="section"></param>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.IniImpl.HasSection(System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.HasSection(System.String,System.String)">
             <summary>
             判断指定的section是否存在。
             </summary>
+            <param name="filePath">INI文件路径</param>
             <param name="section"></param>
             <returns></returns>
             <exception cref="T:System.NotImplementedException"></exception>
         </member>
-        <member name="M:CommonUtil.Ini.Implement.IniImpl.HasKey(System.String,System.String)">
+        <member name="M:CommonUtil.Ini.Implement.IniImpl.HasKey(System.String,System.String,System.String)">
             <summary>
             判断指定的section中是否存在指定的key。
             </summary>
+            <param name="filePath">INI文件路径</param>
             <param name="section"></param>
             <param name="key"></param>
             <returns></returns>
             <exception cref="T:System.NotImplementedException"></exception>
         </member>
-        <member name="P:CommonUtil.Ini.Interface.IIni.FilePath">
+        <member name="T:CommonUtil.Ini.IniHelper">
             <summary>
-            获取或设置INI文件的路径。
+            INI文件操作助手类，提供静态方法简化INI文件操作
             </summary>
         </member>
-        <member name="M:CommonUtil.Ini.Interface.IIni.ReadValue(System.String,System.String,System.String)">
+        <member name="M:CommonUtil.Ini.IniHelper.ReadValue(System.String,System.String,System.String,System.String)">
             <summary>
             获取指定section中的指定key的值。如果section或key不存在，则返回默认值defaultValue。
             </summary>
+            <param name="filePath">INI文件路径</param>
             <param name="section"></param>
             <param name="key"></param>
             <param name="defaultValue"></param>
             <returns></returns>
         </member>
-        <member name="M:CommonUtil.Ini.Interface.IIni.WriteValue(System.String,System.String,System.String)">
+        <member name="M:CommonUtil.Ini.IniHelper.WriteValue(System.String,System.String,System.String,System.String)">
             <summary>
             设置指定section中的指定key的值。如果section或key不存在，则创建它们。
             </summary>
+            <param name="filePath">INI文件路径</param>
             <param name="section"></param>
             <param name="key"></param>
             <param name="value"></param>
         </member>
-        <member name="M:CommonUtil.Ini.Interface.IIni.ReadKeys(System.String)">
+        <member name="M:CommonUtil.Ini.IniHelper.ReadKeys(System.String,System.String)">
             <summary>
             获取INI文件中指定section中的所有key的名称列表。如果section不存在，则返回一个空列表。
             </summary>
+            <param name="filePath">INI文件路径</param>
             <param name="SectionName"></param>
             <returns></returns>
         </member>
-        <member name="M:CommonUtil.Ini.Interface.IIni.ReadSection(System.String)">
+        <member name="M:CommonUtil.Ini.IniHelper.ReadSection(System.String,System.String)">
             <summary>
             读取指定section中的所有key及其对应的值，返回一个字典对象。如果section不存在，则返回一个空字典。
             </summary>
+            <param name="filePath">INI文件路径</param>
             <param name="section"></param>
             <returns></returns>
         </member>
-        <member name="M:CommonUtil.Ini.Interface.IIni.DeleteKey(System.String,System.String)">
+        <member name="M:CommonUtil.Ini.IniHelper.DeleteKey(System.String,System.String,System.String)">
             <summary>
             删除指定section中的指定key。
             </summary>
+            <param name="filePath">INI文件路径</param>
             <param name="section"></param>
             <param name="key"></param>
         </member>
-        <member name="M:CommonUtil.Ini.Interface.IIni.DeleteSection(System.String)">
+        <member name="M:CommonUtil.Ini.IniHelper.DeleteSection(System.String,System.String)">
             <summary>
             删除指定的section以及其包含的所有key。
             </summary>
+            <param name="filePath">INI文件路径</param>
             <param name="section"></param>
         </member>
-        <member name="M:CommonUtil.Ini.Interface.IIni.HasSection(System.String)">
+        <member name="M:CommonUtil.Ini.IniHelper.HasSection(System.String,System.String)">
             <summary>
             确定指定的section是否存在。
             </summary>
+            <param name="filePath">INI文件路径</param>
             <param name="section">查询的名称，不能为空</param>
             <returns>true表示存在，否则false</returns>
         </member>
-        <member name="M:CommonUtil.Ini.Interface.IIni.HasKey(System.String,System.String)">
+        <member name="M:CommonUtil.Ini.IniHelper.HasKey(System.String,System.String,System.String)">
             <summary>
             确定指定的section是否包含给定的key。
             </summary>
+            <param name="filePath">INI文件路径</param>
             <param name="section">要查询的部分，不能为空</param>
             <param name="key">要查询的key，不能为空</param>
             <returns>true 表示有指定的key，否则false</returns>
+        </member>
+        <member name="M:CommonUtil.Ini.Interface.IIni.ReadValue(System.String,System.String,System.String,System.String)">
+            <summary>
+            获取指定section中的指定key的值。如果section或key不存在，则返回默认值defaultValue。
+            </summary>
+            <param name="filePath">INI文件路径</param>
+            <param name="section"></param>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.Ini.Interface.IIni.WriteValue(System.String,System.String,System.String,System.String)">
+            <summary>
+            设置指定section中的指定key的值。如果section或key不存在，则创建它们。
+            </summary>
+            <param name="filePath">INI文件路径</param>
+            <param name="section"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:CommonUtil.Ini.Interface.IIni.ReadKeys(System.String,System.String)">
+            <summary>
+            获取INI文件中指定section中的所有key的名称列表。如果section不存在，则返回一个空列表。
+            </summary>
+            <param name="filePath">INI文件路径</param>
+            <param name="SectionName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.Ini.Interface.IIni.ReadSection(System.String,System.String)">
+            <summary>
+            读取指定section中的所有key及其对应的值，返回一个字典对象。如果section不存在，则返回一个空字典。
+            </summary>
+            <param name="filePath">INI文件路径</param>
+            <param name="section"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.Ini.Interface.IIni.DeleteKey(System.String,System.String,System.String)">
+            <summary>
+            删除指定section中的指定key。
+            </summary>
+            <param name="filePath">INI文件路径</param>
+            <param name="section"></param>
+            <param name="key"></param>
+        </member>
+        <member name="M:CommonUtil.Ini.Interface.IIni.DeleteSection(System.String,System.String)">
+            <summary>
+            删除指定的section以及其包含的所有key。
+            </summary>
+            <param name="filePath">INI文件路径</param>
+            <param name="section"></param>
+        </member>
+        <member name="M:CommonUtil.Ini.Interface.IIni.HasSection(System.String,System.String)">
+            <summary>
+            确定指定的section是否存在。
+            </summary>
+            <param name="filePath">INI文件路径</param>
+            <param name="section">查询的名称，不能为空</param>
+            <returns>true表示存在，否则false</returns>
+        </member>
+        <member name="M:CommonUtil.Ini.Interface.IIni.HasKey(System.String,System.String,System.String)">
+            <summary>
+            确定指定的section是否包含给定的key。
+            </summary>
+            <param name="filePath">INI文件路径</param>
+            <param name="section">要查询的部分，不能为空</param>
+            <param name="key">要查询的key，不能为空</param>
+            <returns>true 表示有指定的key，否则false</returns>
+        </member>
+        <member name="T:CommonUtil.JSON.Extensions.JsonExtensions">
+            <summary>
+            对 IJson 接口的扩展方法
+            </summary>
         </member>
         <member name="M:CommonUtil.JSON.Extensions.JsonExtensions.ReadFromFile``1(CommonUtil.JSON.Interface.IJson,System.String)">
             <summary>
@@ -205,6 +907,256 @@
             <param name="key"></param>
             <returns></returns>
         </member>
+        <member name="T:CommonUtil.JSON.JsonHelper">
+            <summary>
+            JSON操作助手类，提供静态方法简化JSON操作
+            </summary>
+        </member>
+        <member name="M:CommonUtil.JSON.JsonHelper.SerializeObject``1(``0)">
+            <summary>
+            对象序列化为JSON字符串
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.JSON.JsonHelper.DeserializeObject``1(System.String)">
+            <summary>
+            JSON字符串反序列化为对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.JSON.JsonHelper.GetValueFromJson(System.String,System.String)">
+            <summary>
+            从 JSON 字符串中获取指定键的值
+            </summary>
+            <param name="json"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonUtil.LanguageManager.LanguageManagerHelper">
+            <summary>
+            语言管理器
+            创建人：LGB
+            最后修改人：LGB
+            创建时间：2025-04-30
+            更新时间：2026-01-06
+            
+            更新内容：
+            2025-07-22
+            1. 添加了 LocalizableCategoryAttribute 和 LocalizableDescriptionAttribute 类，用于属性的本地化。
+            2. 通过这些属性，可以在属性网格中显示本地化的类别和描述。可以多次切换语言，能够实时更新。
+            
+            使用说明：
+            程序初始化时设置下面参数
+            LanguageManagerHelper.Instance.CurrentLanguage = @"en-US";//获取当前语言,程序加载时读取
+            LanguageManagerHelper.LanguageFilePath = @"E:\00_WorkCodeSpace\CommonUtil\CommonUtil\LanguageManager\LanguageFile\";//设置json语言文件夹路径
+            LanguageManagerHelper.Instance.Initialize(this);//后面的窗体都可以直接使用这个方法来初始化语言，将当前窗体的对象传递进来，绑定关闭事件。窗体关闭后自动清理控件引用，防止内存泄漏
+            
+            切换语言方法
+            SwitchLanguage("en-US");
+            
+            后面每个页面的窗体都要在load中加载这个方法。LanguageManagerClass.Instance.Initialize();
+            后面改变时，设置当前语言，在调用LanguageManagerClass.Instance.Initialize(this);生效。每个后面打开的窗体都要在load中加载这个方法。
+            因为load是在窗体打开时调用的，在load前调用是没有效果的。
+            
+            LanguageManagerHelper.Instance.GetLanguageString("点击");//通过这个可以给出对应的翻译
+            
+            事件，可以用于在窗体中添加切换语言触发的事件，比如重新更新通过GetLanguageString获得字符串
+            SelectLanChangeEven
+            
+            翻译实现逻辑
+            1.根据不同国家的JSON文件加载到dictionary中，然后循环将不同的控件的文本内容给翻译。
+            2.不同控件的control对象全部都放入到一个专门存储dictionary中。
+            3.可以根据不同字符串获取对应的翻译字符串。
+            
+            Todo:
+            1. 整理代码规范
+            
+            
+            </summary>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.Initialize(System.Windows.Forms.Form,System.String)">
+            <summary>
+            初始化语言管理器
+            </summary>
+            <param name="languageCode"></param>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.GetJsonFiles(System.String)">
+            <summary>
+            获取文件夹下面所有 json 文件名称
+            </summary>
+            <param name="folderPath">目录路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.LoadLanguage(System.String)">
+            <summary>
+            根据路劲加载语言 Json 文件
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.InitializeControlOriginalTexts">
+            <summary>
+            初始化所有控件的原始文本映射
+            </summary>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.InitializeFormControlOriginalTexts(System.Windows.Forms.Form)">
+            <summary>
+            为单个窗体的所有控件初始化原始文本映射
+            </summary>
+            <param name="form">要初始化的窗体</param>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.SubscribeFormClosedEvent(System.Windows.Forms.Form)">
+            <summary>
+            订阅窗体关闭事件，用于清理控件引用
+            </summary>
+            <param name="form">要订阅的窗体</param>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.OnFormClosed(System.Object,System.Windows.Forms.FormClosedEventArgs)">
+            <summary>
+            窗体关闭事件处理，用于清理控件引用
+            </summary>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.RemoveFormControls(System.Windows.Forms.Form)">
+            <summary>
+            移除窗体及其控件的引用，防止内存泄漏
+            </summary>
+            <param name="form">要移除的窗体</param>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.RemoveControlRecursive(System.Windows.Forms.Control)">
+            <summary>
+            递归移除控件引用
+            </summary>
+            <param name="control">要移除的控件</param>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.InitializeControlOriginalTextsRecursive(System.Windows.Forms.Control)">
+            <summary>
+            递归初始化控件的原始文本映射
+            </summary>
+            <param name="control"></param>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.InitializeListViewItems(System.Windows.Forms.ListView)">
+            <summary>
+            初始化ListView所有列表项的原始文本
+            </summary>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.InitializeMenuItemTextRecursive(System.Windows.Forms.ToolStripItem)">
+            <summary>
+            递归初始化菜单项的原始文本
+            </summary>
+            <param name="item">要初始化的菜单项</param>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.InitializeTreeViewNodes(System.Windows.Forms.TreeView)">
+            <summary>
+            初始化TreeView所有节点的原始文本
+            </summary>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.InitializeTreeNodeTextRecursive(System.Windows.Forms.TreeNode)">
+            <summary>
+            递归初始化树节点的原始文本
+            </summary>
+            <param name="node">要初始化的树节点</param>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.InitializeSingleControlOriginalText(System.Windows.Forms.Control)">
+            <summary>
+            为单个控件初始化原始文本映射（仅当控件不在字典中时）
+            </summary>
+            <param name="control"></param>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.UpdateControlTexts(System.Windows.Forms.Control,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            更新控件文本
+            </summary>
+            <param name="control"></param>
+            <param name="languageDict"></param>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.UpdateTabControlTexts(System.Windows.Forms.TabControl,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            更新TabControl的选项卡标题
+            </summary>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.UpdateMenuStripTexts(System.Windows.Forms.ToolStrip,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            更新菜单项文本
+            </summary>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.UpdateMenuItemText(System.Windows.Forms.ToolStripItem,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            递归更新菜单项文本
+            </summary>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.UpdateStatusStripTexts(System.Windows.Forms.StatusStrip,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            更新StatusStrip的标签文本
+            </summary>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.UpdateToolStripTexts(System.Windows.Forms.ToolStrip,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            更新ToolStrip的项文本
+            </summary>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.UpdateTreeViewTexts(System.Windows.Forms.TreeView,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            更新TreeView的节点文本
+            </summary>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.UpdateTreeNodeText(System.Windows.Forms.TreeNode,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            递归更新TreeNode文本
+            </summary>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.UpdateListViewTexts(System.Windows.Forms.ListView,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            更新ListView的列标题文本和列表项
+            </summary>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.InitializeSingleToolStripItemText(System.Windows.Forms.ToolStripItem)">
+            <summary>
+            为ToolStripItem初始化原始文本映射
+            </summary>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.InitializeSingleTreeNodeText(System.Windows.Forms.TreeNode)">
+            <summary>
+            为TreeNode初始化原始文本映射
+            </summary>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.InitializeSingleColumnHeaderText(System.Windows.Forms.ColumnHeader)">
+            <summary>
+            为ColumnHeader初始化原始文本映射
+            </summary>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.ApplyCurrentLanguage">
+            <summary>
+            应用当前语言到所有窗体
+            </summary>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.GetLanguageString(System.String)">
+            <summary>
+            获取当前语言的字符串
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.SwitchLanguage(System.String)">
+            <summary>
+            切换语言
+            </summary>
+            <param name="languageCode"></param>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.GetLocalizedString(System.String)">
+            <summary>
+            通过资源键获取本地化字符串
+            </summary>
+            <param name="resourceKey">资源键</param>
+            <returns>本地化字符串，若未找到则返回键本身</returns>
+        </member>
+        <member name="M:CommonUtil.LanguageManager.LanguageManagerHelper.RefreshPropertyGrids">
+            <summary>
+            刷新所有 PropertyGrid 控件，使属性标签的语言更新
+            </summary>
+        </member>
         <member name="M:CommonUtil.Log.Implement.UserLogImpl.GetLogPathByLevel(CommonUtil.Log.Interface.LogLevel)">
             <summary>
             根据日志级别获取对应的文件路径
@@ -237,6 +1189,451 @@
             <summary>
             用于释放日志系统资源的方法
             </summary>
+        </member>
+        <member name="T:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer">
+            <summary>
+            支持嵌套计时的增强型毫秒计时器
+            每次Stop调用会返回当前层级的计时结果
+            
+            使用方法：
+            1.创建计时器对象
+            2.调用start开始，结束时调用stop即可。
+            3.想测量一个方法耗时时间，也可以调用MeasureSegment方法，里面传递委托。
+            
+            
+            功能特性：
+            1. 支持多层嵌套计时，精确测量不同层级代码块的执行时间
+            2. 提供多种计时方式：手动Start/Stop、Action委托测量、嵌套计时
+            3. 实时获取计时状态：运行状态、嵌套深度、不同层级的已用时间
+            4. 支持多个完整分段计时，可累计所有分段的总时间
+            5. 实现IDisposable接口，确保资源正确释放
+            
+            使用示例：
+            <code>
+            // 基本使用方式
+            using (var timer = new EnhancedMillisecondTimer())
+            {
+                timer.Start();
+                // 执行需要计时的操作
+                System.Threading.Thread.Sleep(100);
+                long elapsed = timer.Stop();
+                Console.WriteLine($"操作耗时: {elapsed}ms");
+            }
+            
+            // 嵌套计时使用方式
+            using (var timer = new EnhancedMillisecondTimer())
+            {
+                timer.Start(); // 外层Start
+                System.Threading.Thread.Sleep(50);
+                
+                timer.Start(); // 内层Start
+                System.Threading.Thread.Sleep(100);
+                long innerElapsed = timer.Stop(); // 返回内层耗时（约100ms）
+                
+                System.Threading.Thread.Sleep(50);
+                long outerElapsed = timer.Stop(); // 返回外层耗时（约200ms）
+                
+                Console.WriteLine($"内层操作耗时: {innerElapsed}ms");
+                Console.WriteLine($"外层操作耗时: {outerElapsed}ms");
+            }
+            
+            // 使用MeasureSegment方法
+            using (var timer = new EnhancedMillisecondTimer())
+            {
+                long elapsed = timer.MeasureSegment(() =>
+                {
+                    // 执行需要计时的操作
+                    System.Threading.Thread.Sleep(150);
+                });
+                Console.WriteLine($"操作耗时: {elapsed}ms");
+            }
+            </code>
+            
+            适用场景：
+            - 性能分析：测量代码块的执行时间
+            - 嵌套操作计时：如多层方法调用、递归操作的计时
+            - 多次重复操作的累计计时
+            - 实时监控长时间运行操作的执行时间
+            </summary>
+        </member>
+        <member name="P:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer.TimerId">
+            <summary>
+            计时器唯一标识
+            </summary>
+        </member>
+        <member name="P:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer.IsSegmentRunning">
+            <summary>
+            获取分段计时是否正在运行（是否有未关闭的嵌套层级）
+            </summary>
+        </member>
+        <member name="P:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer.LastFullSegmentMs">
+            <summary>
+            获取上一次完成的完整分段（最外层）计时的时间(毫秒)
+            </summary>
+        </member>
+        <member name="P:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer.TotalFullSegmentsMs">
+            <summary>
+            获取所有完成的完整分段计时的累计时间(毫秒)
+            </summary>
+        </member>
+        <member name="P:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer.SegmentNestingDepth">
+            <summary>
+            获取当前分段计时的嵌套深度
+            </summary>
+        </member>
+        <member name="P:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer.CurrentSegmentElapsedMs">
+            <summary>
+            获取当前嵌套分段从最外层Start到现在的累计时间(毫秒)
+            </summary>
+        </member>
+        <member name="P:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer.CurrentInnerSegmentElapsedMs">
+            <summary>
+            获取当前嵌套分段从最内层Start到现在的累计时间(毫秒)
+            </summary>
+        </member>
+        <member name="M:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer.#ctor">
+            <summary>
+            初始化EnhancedMillisecondTimer实例
+            </summary>
+        </member>
+        <member name="M:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer.#ctor(System.String)">
+            <summary>
+            初始化EnhancedMillisecondTimer实例，指定计时器ID
+            </summary>
+            <param name="timerId">计时器唯一标识</param>
+        </member>
+        <member name="M:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer.Start">
+            <summary>
+            开始或增加分段计时的嵌套层级
+            多次调用会增加嵌套深度
+            </summary>
+        </member>
+        <member name="M:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer.Stop">
+            <summary>
+            减少分段计时的嵌套层级或停止计时
+            返回当前层级从Start到Stop的时间(毫秒)
+            </summary>
+            <returns>当前层级的计时结果(毫秒)</returns>
+        </member>
+        <member name="M:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer.GetCurrentSegmentElapsedTime">
+            <summary>
+            获取当前嵌套分段从最外层Start到现在的累计时间（不停止计时）
+            </summary>
+            <returns>已流逝的毫秒数，如果未在计时则返回0</returns>
+        </member>
+        <member name="M:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer.GetCurrentInnerSegmentElapsedTime">
+            <summary>
+            获取当前嵌套分段从最内层Start到现在的累计时间（不停止计时）
+            </summary>
+            <returns>已流逝的毫秒数，如果未在计时则返回0</returns>
+        </member>
+        <member name="M:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer.ResetSegments">
+            <summary>
+            重置分段计时数据，清除所有嵌套状态
+            </summary>
+        </member>
+        <member name="M:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer.ResetAll">
+            <summary>
+            重置所有计时数据
+            </summary>
+        </member>
+        <member name="M:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer.MeasureSegment(System.Action)">
+            <summary>
+            测量一个操作的执行时间(毫秒)，使用分段计时
+            </summary>
+            <param name="action">要执行的操作</param>
+            <returns>操作执行的时间间隔(毫秒)</returns>
+        </member>
+        <member name="M:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer.ToString">
+            <summary>
+            获取当前计时器所有状态的字符串表示
+            </summary>
+            <returns>包含所有计时信息的字符串</returns>
+        </member>
+        <member name="M:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer.Dispose(System.Boolean)">
+            <summary>
+            释放资源的实际实现
+            </summary>
+            <param name="disposing">是否手动释放</param>
+        </member>
+        <member name="M:CommonUtil.MillisecondTimer.EnhancedMillisecondTimer.Finalize">
+            <summary>
+            析构函数
+            </summary>
+        </member>
+        <member name="T:CommonUtil.StringHelper">
+            <summary>
+            字符串处理工具类，提供常用的字符串操作方法
+            </summary>
+        </member>
+        <member name="M:CommonUtil.StringHelper.FirstLetterToUpper(System.String)">
+            <summary>
+            将字符串首字母大写
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>首字母大写的字符串</returns>
+        </member>
+        <member name="M:CommonUtil.StringHelper.FirstLetterToLower(System.String)">
+            <summary>
+            将字符串首字母小写
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>首字母小写的字符串</returns>
+        </member>
+        <member name="M:CommonUtil.StringHelper.ToCamelCase(System.String,System.Char[])">
+            <summary>
+            将字符串转换为驼峰命名
+            </summary>
+            <param name="input">输入字符串</param>
+            <param name="delimiters">分隔符数组，默认为下划线、破折号和空格</param>
+            <returns>驼峰命名的字符串</returns>
+        </member>
+        <member name="M:CommonUtil.StringHelper.ToPascalCase(System.String,System.Char[])">
+            <summary>
+            将字符串转换为帕斯卡命名（大驼峰命名）
+            </summary>
+            <param name="input">输入字符串</param>
+            <param name="delimiters">分隔符数组，默认为下划线、破折号和空格</param>
+            <returns>帕斯卡命名的字符串</returns>
+        </member>
+        <member name="M:CommonUtil.StringHelper.ToUnderlineCase(System.String)">
+            <summary>
+            将字符串转换为下划线命名
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>下划线命名的字符串</returns>
+        </member>
+        <member name="M:CommonUtil.StringHelper.IsNullOrEmpty(System.String)">
+            <summary>
+            检查字符串是否为null或空字符串
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>如果字符串为null或空字符串则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.StringHelper.IsNullOrWhiteSpace(System.String)">
+            <summary>
+            检查字符串是否为null、空字符串或仅包含空白字符
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>如果字符串为null、空字符串或仅包含空白字符则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.StringHelper.IsLetter(System.String)">
+            <summary>
+            检查字符串是否只包含字母
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>如果字符串只包含字母则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.StringHelper.IsValidEmail(System.String)">
+            <summary>
+            检查字符串是否为有效的邮箱地址
+            </summary>
+            <param name="email">邮箱地址</param>
+            <returns>如果是有效的邮箱地址则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.StringHelper.IsNumber(System.String)">
+            <summary>
+            检查字符串是否只包含数字
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.StringHelper.IsLetterOrNumber(System.String)">
+            <summary>
+            检查字符串是否只包含字母和数字
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.StringHelper.Truncate(System.String,System.Int32,System.String)">
+            <summary>
+            截断字符串到指定长度
+            </summary>
+            <param name="input">输入字符串</param>
+            <param name="maxLength">最大长度</param>
+            <param name="suffix">截断后添加的后缀，默认为"..."</param>
+            <returns>截断后的字符串</returns>
+        </member>
+        <member name="M:CommonUtil.StringHelper.TrimAllWhitespace(System.String)">
+            <summary>
+            去除字符串中的所有空白字符
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>去除空白字符后的字符串</returns>
+        </member>
+        <member name="M:CommonUtil.StringHelper.Repeat(System.String,System.Int32)">
+            <summary>
+            重复字符串指定次数
+            </summary>
+            <param name="input">输入字符串</param>
+            <param name="count">重复次数</param>
+            <returns>重复后的字符串</returns>
+        </member>
+        <member name="M:CommonUtil.StringHelper.ToTitleCase(System.String)">
+            <summary>
+            将字符串转换为标题格式
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>标题格式的字符串</returns>
+        </member>
+        <member name="T:CommonUtil.ValidationHelper">
+            <summary>
+            验证工具类，提供常用的数据验证方法
+            </summary>
+        </member>
+        <member name="M:CommonUtil.ValidationHelper.IsEmpty(System.String)">
+            <summary>
+            判断字符串是否为空
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>如果字符串为null或空字符串则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.ValidationHelper.IsNotEmpty(System.String)">
+            <summary>
+            判断字符串是否不为空
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>如果字符串不为null且不为空字符串则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.ValidationHelper.IsBlank(System.String)">
+            <summary>
+            判断字符串是否为空白
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>如果字符串为null、空字符串或仅包含空白字符则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.ValidationHelper.IsNotBlank(System.String)">
+            <summary>
+            判断字符串是否不为空白
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>如果字符串不为null、空字符串且包含非空白字符则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.ValidationHelper.IsLengthInRange(System.String,System.Int32,System.Int32)">
+            <summary>
+            判断字符串长度是否在指定范围内
+            </summary>
+            <param name="input">输入字符串</param>
+            <param name="minLength">最小长度</param>
+            <param name="maxLength">最大长度</param>
+            <returns>如果字符串长度在指定范围内则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.ValidationHelper.IsValidEmail(System.String)">
+            <summary>
+            判断是否为有效的邮箱地址
+            </summary>
+            <param name="email">邮箱地址</param>
+            <returns>如果是有效的邮箱地址则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.ValidationHelper.IsValidUrl(System.String)">
+            <summary>
+            判断是否为有效的URL地址
+            </summary>
+            <param name="url">URL地址</param>
+            <returns>如果是有效的URL地址则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.ValidationHelper.IsValidPhone(System.String)">
+            <summary>
+            判断是否为有效的中国大陆手机号
+            </summary>
+            <param name="phone">手机号</param>
+            <returns>如果是有效的中国大陆手机号则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.ValidationHelper.IsValidIdCard(System.String)">
+            <summary>
+            判断是否为有效的中国大陆身份证号
+            </summary>
+            <param name="idCard">身份证号</param>
+            <returns>如果是有效的中国大陆身份证号则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.ValidationHelper.IsValidNumber(System.String)">
+            <summary>
+            判断是否为有效的数字
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>如果是有效的数字则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.ValidationHelper.IsValidInteger(System.String)">
+            <summary>
+            判断是否为有效的整数
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>如果是有效的整数则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.ValidationHelper.IsValidPositiveNumber(System.String)">
+            <summary>
+            判断是否为有效的正数
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>如果是有效的正数则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.ValidationHelper.IsValidPositiveInteger(System.String)">
+            <summary>
+            判断是否为有效的正整数
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>如果是有效的正整数则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.ValidationHelper.IsNumberInRange(System.Double,System.Double,System.Double)">
+            <summary>
+            判断数字是否在指定范围内
+            </summary>
+            <param name="number">数字</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+            <returns>如果数字在指定范围内则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.ValidationHelper.IsIntegerInRange(System.Int64,System.Int64,System.Int64)">
+            <summary>
+            判断整数是否在指定范围内
+            </summary>
+            <param name="number">整数</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+            <returns>如果整数在指定范围内则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.ValidationHelper.IsValidDateTime(System.String,System.String)">
+            <summary>
+            判断是否为有效的日期时间字符串
+            </summary>
+            <param name="dateTimeString">日期时间字符串</param>
+            <param name="format">格式化字符串，默认为"yyyy-MM-dd HH:mm:ss"</param>
+            <returns>如果是有效的日期时间字符串则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.ValidationHelper.IsDateInRange(System.DateTime,System.DateTime,System.DateTime)">
+            <summary>
+            判断日期是否在指定范围内
+            </summary>
+            <param name="date">日期</param>
+            <param name="startDate">开始日期</param>
+            <param name="endDate">结束日期</param>
+            <returns>如果日期在指定范围内则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.ValidationHelper.IsWeakPassword(System.String)">
+            <summary>
+            判断密码强度是否为弱
+            </summary>
+            <param name="password">密码</param>
+            <returns>如果密码强度为弱则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.ValidationHelper.IsMediumPassword(System.String)">
+            <summary>
+            判断密码强度是否为中等
+            </summary>
+            <param name="password">密码</param>
+            <returns>如果密码强度为中等则返回true，否则返回false</returns>
+        </member>
+        <member name="M:CommonUtil.ValidationHelper.IsStrongPassword(System.String)">
+            <summary>
+            判断密码强度是否为强
+            </summary>
+            <param name="password">密码</param>
+            <returns>如果密码强度为强则返回true，否则返回false</returns>
         </member>
         <member name="T:CommonUtil.WindwosSystem.Implement.WinSysImpl">
             <summary>
@@ -280,71 +1677,102 @@
             <returns></returns>
         </member>
         <!-- Badly formed XML comment ignored for member "M:CommonUtil.WindwosSystem.Interface.IWinSys.GetCpuUsage" -->
-        <member name="P:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.FilePath">
+        <member name="T:CommonUtil.WindwosSystem.WinSysHelper">
             <summary>
-            获取或设置XML文件路径
+            Windows系统操作助手类，提供静态方法简化Windows系统操作
             </summary>
         </member>
-        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.#ctor(System.String)">
+        <member name="M:CommonUtil.WindwosSystem.WinSysHelper.GetCurrentProcessMemoryUsage">
             <summary>
-            构造函数（可选：指定初始文件路径）
+            获取当前进程的内存使用情况，单位为字节
             </summary>
-            <param name="filePath">XML文件路径</param>
+            <returns>前进程的内存使用情况</returns>
         </member>
-        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.GetRootNodeName">
+        <member name="M:CommonUtil.WindwosSystem.WinSysHelper.GetSystemMemoryInfo">
+            <summary>
+            获取系统总内存和可用内存，单位为字节
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.WindwosSystem.WinSysHelper.GetCpuUsage">
+            <summary>
+            获取 CPU 使用率（0-100 的整数），这里使用异步方法以避免阻塞调用线程
+            调用时注意使用 await 关键字，否则调用改方法的页面会卡死。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.EnsureFileExists(System.String)">
+            <summary>
+            确保XML文件存在（如不存在则创建空XML，根节点为"Root"）
+            </summary>
+        </member>
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.GetRootNodeName(System.String)">
             <summary>
             获取XML文件的根节点名称
             </summary>
+            <param name="filePath">XML文件路径</param>
             <returns>根节点名称（如无文件则抛出异常）</returns>
         </member>
-        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.GetChildNodeNames(System.String)">
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.GetChildNodeNames(System.String,System.String)">
             <summary>
             获取指定节点的所有子节点名称列表
             </summary>
+            <param name="filePath">XML文件路径</param>
             <param name="nodePath">节点XPath路径（如"/book/chapters"）</param>
             <returns>子节点名称列表（如无节点则返回空列表）</returns>
         </member>
-        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.GetNodeAttributeValue(System.String,System.String)">
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.GetNodeAttributeValue(System.String,System.String,System.String)">
             <summary>
             获取指定节点的属性值
             </summary>
+            <param name="filePath">XML文件路径</param>
             <param name="nodePath">节点XPath路径</param>
             <param name="attributeName">属性名称</param>
             <returns>属性值（如节点或属性不存在则返回null）</returns>
         </member>
-        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.SetNodeAttributeValue(System.String,System.String,System.String)">
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.SetNodeAttributeValue(System.String,System.String,System.String,System.String)">
             <summary>
             设置指定节点的属性值（如属性不存在则新增）
             </summary>
+            <param name="filePath">XML文件路径</param>
             <param name="nodePath">节点XPath路径</param>
             <param name="attributeName">属性名称</param>
             <param name="attributeValue">属性值</param>
         </member>
-        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.GetNodeText(System.String)">
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.GetNodeText(System.String,System.String)">
             <summary>
             获取指定节点的文本内容
             </summary>
+            <param name="filePath">XML文件路径</param>
             <param name="nodePath">节点XPath路径</param>
             <returns>节点文本（如节点不存在则返回null）</returns>
         </member>
-        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.SetNodeText(System.String,System.String)">
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.SetNodeText(System.String,System.String,System.String)">
             <summary>
             设置指定节点的文本内容
             </summary>
+            <param name="filePath">XML文件路径</param>
             <param name="nodePath">节点XPath路径</param>
             <param name="text">要设置的文本</param>
         </member>
-        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.AddChildNode(System.String,System.String)">
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.AddChildNode(System.String,System.String,System.String)">
             <summary>
             向指定父节点添加子节点
             </summary>
+            <param name="filePath">XML文件路径</param>
             <param name="parentNodePath">父节点XPath路径</param>
             <param name="childNodeName">子节点名称</param>
         </member>
-        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.DeleteNode(System.String)">
+        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.DeleteNode(System.String,System.String)">
             <summary>
             删除指定节点
             </summary>
+            <param name="filePath">XML文件路径</param>
             <param name="nodePath">节点XPath路径</param>
         </member>
         <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.SerializeObjectToXML``1(System.String,``0)">
@@ -363,15 +1791,170 @@
             <param name="path">XML文件路径</param>
             <returns>反序列化后的对象</returns>
         </member>
-        <member name="M:CommonUtil.XML.Implement.XMLHandlerToLINQImpl.EnsureFileExists">
+        <member name="M:CommonUtil.XML.Interface.IXML.GetRootNodeName(System.String)">
             <summary>
-            确保XML文件存在（如不存在则创建空XML，根节点为"Root"）
+            获取XML文件的根节点名称
+            </summary>
+            <param name="filePath">XML文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.XML.Interface.IXML.GetChildNodeNames(System.String,System.String)">
+            <summary>
+            获取指定节点的所有子节点名称列表
+            </summary>
+            <param name="filePath">XML文件路径</param>
+            <param name="nodePath">节点XPath路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.XML.Interface.IXML.GetNodeAttributeValue(System.String,System.String,System.String)">
+            <summary>
+            获取指定节点的属性值
+            </summary>
+            <param name="filePath">XML文件路径</param>
+            <param name="nodePath">节点XPath路径</param>
+            <param name="attributeName">属性名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.XML.Interface.IXML.SetNodeAttributeValue(System.String,System.String,System.String,System.String)">
+            <summary>
+            设置指定节点的属性值
+            </summary>
+            <param name="filePath">XML文件路径</param>
+            <param name="nodePath">节点XPath路径</param>
+            <param name="attributeName">属性名称</param>
+            <param name="attributeValue">属性值</param>
+        </member>
+        <member name="M:CommonUtil.XML.Interface.IXML.GetNodeText(System.String,System.String)">
+            <summary>
+            获取指定节点的文本内容
+            </summary>
+            <param name="filePath">XML文件路径</param>
+            <param name="nodePath">节点XPath路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.XML.Interface.IXML.SetNodeText(System.String,System.String,System.String)">
+            <summary>
+            设置指定节点的文本内容
+            </summary>
+            <param name="filePath">XML文件路径</param>
+            <param name="nodePath">节点XPath路径</param>
+            <param name="text">文本内容</param>
+        </member>
+        <member name="M:CommonUtil.XML.Interface.IXML.AddChildNode(System.String,System.String,System.String)">
+            <summary>
+            添加子节点
+            </summary>
+            <param name="filePath">XML文件路径</param>
+            <param name="parentNodePath">父节点XPath路径</param>
+            <param name="childNodeName">子节点名称</param>
+        </member>
+        <member name="M:CommonUtil.XML.Interface.IXML.DeleteNode(System.String,System.String)">
+            <summary>
+            删除指定节点
+            </summary>
+            <param name="filePath">XML文件路径</param>
+            <param name="nodePath">节点XPath路径</param>
+        </member>
+        <member name="M:CommonUtil.XML.Interface.IXML.SerializeObjectToXML``1(System.String,``0)">
+            <summary>
+            将对象序列化为XML并保存到文件
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="path">保存路径</param>
+            <param name="obj">要序列化的对象</param>
+        </member>
+        <member name="M:CommonUtil.XML.Interface.IXML.DeserializeObjectFromXML``1(System.String)">
+            <summary>
+            从XML文件反序列化为对象
+            </summary>
+            <typeparam name="T">目标对象类型</typeparam>
+            <param name="path">XML文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonUtil.XML.XmlHelper">
+            <summary>
+            XML操作助手类，提供静态方法简化XML操作
             </summary>
         </member>
-        <member name="P:CommonUtil.XML.Interface.IXML.FilePath">
+        <member name="M:CommonUtil.XML.XmlHelper.GetRootNodeName(System.String)">
             <summary>
-            获取或设置XML文件的路径。
+            获取XML文件的根节点名称
             </summary>
+            <param name="filePath">XML文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.XML.XmlHelper.GetChildNodeNames(System.String,System.String)">
+            <summary>
+            获取指定节点的所有子节点名称列表
+            </summary>
+            <param name="filePath">XML文件路径</param>
+            <param name="nodePath">节点XPath路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.XML.XmlHelper.GetNodeAttributeValue(System.String,System.String,System.String)">
+            <summary>
+            获取指定节点的属性值
+            </summary>
+            <param name="filePath">XML文件路径</param>
+            <param name="nodePath">节点XPath路径</param>
+            <param name="attributeName">属性名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.XML.XmlHelper.SetNodeAttributeValue(System.String,System.String,System.String,System.String)">
+            <summary>
+            设置指定节点的属性值
+            </summary>
+            <param name="filePath">XML文件路径</param>
+            <param name="nodePath">节点XPath路径</param>
+            <param name="attributeName">属性名称</param>
+            <param name="attributeValue">属性值</param>
+        </member>
+        <member name="M:CommonUtil.XML.XmlHelper.GetNodeText(System.String,System.String)">
+            <summary>
+            获取指定节点的文本内容
+            </summary>
+            <param name="filePath">XML文件路径</param>
+            <param name="nodePath">节点XPath路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonUtil.XML.XmlHelper.SetNodeText(System.String,System.String,System.String)">
+            <summary>
+            设置指定节点的文本内容
+            </summary>
+            <param name="filePath">XML文件路径</param>
+            <param name="nodePath">节点XPath路径</param>
+            <param name="text">文本内容</param>
+        </member>
+        <member name="M:CommonUtil.XML.XmlHelper.AddChildNode(System.String,System.String,System.String)">
+            <summary>
+            添加子节点
+            </summary>
+            <param name="filePath">XML文件路径</param>
+            <param name="parentNodePath">父节点XPath路径</param>
+            <param name="childNodeName">子节点名称</param>
+        </member>
+        <member name="M:CommonUtil.XML.XmlHelper.DeleteNode(System.String,System.String)">
+            <summary>
+            删除指定节点
+            </summary>
+            <param name="filePath">XML文件路径</param>
+            <param name="nodePath">节点XPath路径</param>
+        </member>
+        <member name="M:CommonUtil.XML.XmlHelper.SerializeObjectToXML``1(System.String,``0)">
+            <summary>
+            将对象序列化为XML并保存到文件
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="path">保存路径</param>
+            <param name="obj">要序列化的对象</param>
+        </member>
+        <member name="M:CommonUtil.XML.XmlHelper.DeserializeObjectFromXML``1(System.String)">
+            <summary>
+            从XML文件反序列化为对象
+            </summary>
+            <typeparam name="T">目标对象类型</typeparam>
+            <param name="path">XML文件路径</param>
+            <returns></returns>
         </member>
     </members>
 </doc>

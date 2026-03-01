@@ -26,7 +26,7 @@ namespace DeepCopyDemo
                 student = new Student { Name = "Alice", Age = 20 }
             };
 
-            DeepCopyClass copy = new DeepCopyImpl().DeepCopyObjectByBinary(original);
+            DeepCopyClass copy = new BinaryDeepCopyImpl().DeepCopy(original);
             copy.Id = 2;
             copy.student.Name = "Bob";
 
@@ -42,7 +42,7 @@ namespace DeepCopyDemo
                 student = new Student { Name = "Alice", Age = 20 }
             };
 
-            DeepCopyClass copy = new DeepCopyImpl().DeepCopyObjectByNewtonsoftJson(original);
+            DeepCopyClass copy = new NewtonsoftDeepCopyImpl().DeepCopy(original);
             copy.Id = 2;
             copy.student.Name = "Bob";
 
@@ -58,7 +58,7 @@ namespace DeepCopyDemo
                 student = new Student { Name = "Alice", Age = 20 }
             };
 
-            DeepCopyClass copy = new DeepCopyImpl().DeepCopyObjectByTextJson(original);
+            DeepCopyClass copy = new TextJsonDeepCopyImpl().DeepCopy(original);
             copy.Id = 2;
             copy.student.Name = "Bob";
 
@@ -68,18 +68,18 @@ namespace DeepCopyDemo
 
         private void btnXML_Click(object sender, EventArgs e)
         {
-            DeepCopyClass original = new DeepCopyClass
-            {
-                Id = 1,
-                student = new Student { Name = "Alice", Age = 20 }
-            };
+            //DeepCopyClass original = new DeepCopyClass
+            //{
+            //    Id = 1,
+            //    student = new Student { Name = "Alice", Age = 20 }
+            //};
 
-            DeepCopyClass copy = new DeepCopyImpl().DeepCopyObjectByXML(original);
-            copy.Id = 2;
-            copy.student.Name = "Bob";
+            //DeepCopyClass copy = new DeepCopyImpl().DeepCopyObjectByXML(original);
+            //copy.Id = 2;
+            //copy.student.Name = "Bob";
 
-            lblObject.Text = $"id={original.Id}; name={original.student.Name}; age={original.student.Age}";
-            lblDeepCopyObject.Text = $"id={copy.Id}; name={copy.student.Name}; age={copy.student.Age}";
+            //lblObject.Text = $"id={original.Id}; name={original.student.Name}; age={original.student.Age}";
+            //lblDeepCopyObject.Text = $"id={copy.Id}; name={copy.student.Name}; age={copy.student.Age}";
         }
     }
 }

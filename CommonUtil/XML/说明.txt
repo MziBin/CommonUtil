@@ -1,0 +1,32 @@
+﻿XML的节点路经写法类似/Root/ChildNode于文件系统中的路径写法。以下是一些常见的XML节点路径写法示例：
+1. 根节点路径
+/Root
+表示XML文档的根节点。
+2. 子节点路径
+/Root/ChildNode
+表示根节点下的子节点ChildNode。
+3. 多级节点路径
+/Root/ParentNode/ChildNode
+表示根节点下的ParentNode节点的子节点ChildNode。
+4. 带属性的节点路径
+/Root/ChildNode[@attribute='value']
+表示根节点下的ChildNode节点，其属性attribute的值为value。
+5. 任意位置的节点
+//ChildNode
+表示文档中所有名为ChildNode的节点，无论其位置。
+6. 选择特定索引的节点
+/Root/ChildNode[1]
+表示根节点下的第一个ChildNode节点。
+7. 选择所有子节点
+/Root/*
+表示根节点下的所有子节点。
+8. 选择特定名称的所有子节点
+/Root/ChildNode/*
+表示根节点下所有名为ChildNode的节点的所有子节点。
+9. 选择节点的文本内容
+/Root/ChildNode/text()
+表示根节点下ChildNode节点的文本内容。
+10. 选择节点的属性值
+/Root/ChildNode/@attribute
+表示根节点下ChildNode节点的attribute属性值。
+这些路径写法可以帮助你在XML文档中定位和操作特定的节点和属性。

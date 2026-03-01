@@ -69,6 +69,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -77,35 +78,59 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CSV\Interface\ISCV.cs" />
+    <Compile Include="CSVOrDataTable\CsvOrDataTableHelper.cs" />
+    <Compile Include="CSVOrDataTable\Implement\CSVOrDataTableImpl.cs" />
+    <Compile Include="CSVOrDataTable\Interface\ICSVOrDataTable.cs" />
+    <Compile Include="StaticHelper\CryptoHelper.cs" />
+    <Compile Include="StaticHelper\DateTimeHelper.cs" />
+    <Compile Include="DeepCopy\DeepCopyHelper.cs" />
     <Compile Include="DeepCopy\Implement\BinaryDeepCopyImpl.cs" />
     <Compile Include="DeepCopy\Implement\NewtonsoftDeepCopyImpl.cs" />
     <Compile Include="DeepCopy\Implement\TextJsonDeepCopyImpl.cs" />
     <Compile Include="DeepCopy\Interface\IDeepCopy.cs" />
+    <Compile Include="StaticHelper\FileHelper.cs" />
     <Compile Include="Ini\Implement\IniImpl.cs" />
+    <Compile Include="Ini\IniHelper.cs" />
     <Compile Include="Ini\Interface\IIni.cs" />
     <Compile Include="JSON\Extensions\JsonExtensions.cs" />
     <Compile Include="JSON\Implement\NewtonsoftJSONImpl.cs" />
     <Compile Include="JSON\Implement\TextJSONImpl.cs" />
     <Compile Include="JSON\Interface\IJson.cs" />
+    <Compile Include="JSON\JsonHelper.cs" />
+    <Compile Include="LanguageManager\LanguageManagerHelper.cs" />
     <Compile Include="Log\Implement\BZLogImpl.cs" />
     <Compile Include="Log\Implement\UserLogImpl.cs" />
     <Compile Include="Log\Implement\Log4netImpl.cs" />
     <Compile Include="Log\Interface\ILog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MillisecondTimer\EnhancedMillisecondTimer.cs" />
+    <Compile Include="StaticHelper\StringHelper.cs" />
+    <Compile Include="StaticHelper\ValidationHelper.cs" />
     <Compile Include="WindwosSystem\Implement\WinSysImpl.cs" />
     <Compile Include="WindwosSystem\Interface\IWinSys.cs" />
+    <Compile Include="WindwosSystem\WinSysHelper.cs" />
     <Compile Include="XML\Implement\XMLHandlerToLINQImpl.cs" />
     <Compile Include="XML\Interface\IXML.cs" />
+    <Compile Include="XML\XmlHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CSV\Implement\" />
+    <Folder Include="Communication\Implement\" />
+    <Folder Include="Communication\Interface\" />
     <Folder Include="DataBase\Implement\" />
     <Folder Include="DataBase\Interface\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="LanguageManager\LanguageFile\en-US.json" />
+    <None Include="LanguageManager\LanguageFile\vi-VN.json" />
+    <None Include="LanguageManager\LanguageFile\zh-CN.json" />
+    <None Include="LanguageManager\LanguageFile\zh-TW.json" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Communication\说明.txt" />
+    <Content Include="Log\说明.txt" />
+    <Content Include="XML\说明.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
