@@ -23,7 +23,7 @@ namespace LanguageDemo
         {
             // 设置语言文件路径
             //string languageFilePath = "D:\\code\\lgb\\CommonUtil-20260106-b\\CommonUtil\\LanguageManager\\LanguageFile";
-            string languageFilePath = "E:\\00_WorkCodeSpace\\CommonUtil-20260109-a\\CommonUtil\\LanguageManager\\LanguageFile\\";
+            string languageFilePath = "E:\\00_WorkCodeSpace\\CommonUtil\\CommonUtil\\LanguageManager\\LanguageFile\\";
             LanguageManagerHelper.LanguageFilePath = languageFilePath;
             
             // 设置当前语言

@@ -60,5 +60,10 @@ namespace WinSysDemo
                 appMemory.Text = (WinSysImpl.Instance.GetCurrentProcessMemoryUsage() / (1024 * 1024)).ToString() + " MB";
             }));
         }
+
+        private void CpuUsage_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
